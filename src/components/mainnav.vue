@@ -7,9 +7,11 @@
       type="dark"
       variant="dark"
     >
+
+    <slot> 
       <b-navbar-brand class="navbar-nav-svg ">
         <router-link class="text-white" to="/" style="text-decoration:none;">
-        Login
+          {{ msg }}
         </router-link>
       </b-navbar-brand>
       <b-navbar-toggle target="navbar-toggle-collapse">
@@ -21,19 +23,19 @@
 
       <b-collapse id="navbar-toggle-collapse" is-nav>
         <b-navbar-nav class="ml-auto">
-          <slot>
+          
             <b-nav-item>
               <router-link
                 style="text-decoration:none;"
                 class="text-white"
                 to="/about"
               >
-               
               </router-link>
             </b-nav-item>
-          </slot>
+        
         </b-navbar-nav>
       </b-collapse>
+	  </slot>
     </b-navbar>
   </div>
 </template>
@@ -43,7 +45,8 @@ export default {
   name: 'navBar',
   data () {
     return {}
-  }
+  },
+  props: { msg: String }
 }
 </script>
 

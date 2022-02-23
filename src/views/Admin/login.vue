@@ -1,6 +1,6 @@
 <template>
   <main>
-    <mainnav />
+    <mainnav msg="Admin login" />
     <div class="container">
       <div class="container mt-5">
         <div class="row d-flex justify-content-center">
@@ -56,7 +56,7 @@
 <script>
 import mainnav from '@/components/mainnav.vue'
 export default {
-  name: 'home',
+  name: 'adminhome',
   components: {
     mainnav
   },
@@ -103,7 +103,14 @@ export default {
         this.$http
           .post('http://localhost:8000/api/v1/adminlog', data)
           .then(res => {
-            console.log(res.data)
+            if (
+              res.data.message === 'user not found' ||
+              res.data.message === 'Internal Server Error'
+            ) {
+              this.$swal({ icon: 'error', text: res.data.message })
+            } else if (res.data[0].type === 0) {
+				this.$router.push('/admindash')
+            }
           })
           .catch(err => {
             console.log('Network Error')
