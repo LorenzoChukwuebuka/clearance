@@ -5,6 +5,7 @@ import adminhome from '../views/Admin/login.vue'
 import adminDash from '../views/Admin/adminDash.vue'
 import department from '../views/Admin/departments.vue'
 import createAdmin from '../views/Admin/createAdmin.vue'
+import createStudent from '../views/Admin/createStudents.vue'
 
 Vue.use(VueRouter)
 
@@ -23,22 +24,42 @@ const routes = [
     path: '/admindash',
     name: 'adminDash',
     component: adminDash,
-    // beforeEnter: (to, from, next) => {
-    //   const isAuthenticated = localStorage.getItem('Id') ? true : false
-    //   if (to.name !== 'Home' && !isAuthenticated) next({ name: 'Home' })
-    //   else next()
-    // }
+    beforeEnter: (to, from, next) => {
+      const isAuthenticated = localStorage.getItem('Id') ? true : false
+      if (to.name !== 'Home' && !isAuthenticated) next({ name: 'Home' })
+      else next()
+    }
   },
   {
     path: '/dept',
     name: 'dept',
-    component: department
+    component: department,
+    beforeEnter: (to, from, next) => {
+      const isAuthenticated = localStorage.getItem('Id') ? true : false
+      if (to.name !== 'Home' && !isAuthenticated) next({ name: 'Home' })
+      else next()
+    }
   },
 
   {
     path: '/createAdmin',
     name: 'createAdmin',
-    component: createAdmin
+    component: createAdmin,
+    beforeEnter: (to, from, next) => {
+      const isAuthenticated = localStorage.getItem('Id') ? true : false
+      if (to.name !== 'Home' && !isAuthenticated) next({ name: 'Home' })
+      else next()
+    }
+  },
+  {
+    path: '/createStudent',
+    name: 'createStudent',
+    component: createStudent,
+    beforeEnter: (to, from, next) => {
+      const isAuthenticated = localStorage.getItem('Id') ? true : false
+      if (to.name !== 'Home' && !isAuthenticated) next({ name: 'Home' })
+      else next()
+    }
   },
 
   {

@@ -13,7 +13,7 @@
       <input
         type="text"
         class="form-control"
-        placeholder="Search Courses"
+        placeholder="Search Departments"
         aria-label="Username"
         aria-describedby="basic-addon1"
       />

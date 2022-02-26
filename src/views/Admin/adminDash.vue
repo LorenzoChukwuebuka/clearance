@@ -1,7 +1,7 @@
 <template>
   <main>
-    <adminnav msg="Admin Dashboard"/>
-    <adminDashComponent /> 
+    <adminnav msg="Admin Dashboard" />
+    <adminDashComponent />
   </main>
 </template>
 
@@ -13,6 +13,22 @@ export default {
   components: {
     adminDashComponent,
     adminnav
+  },
+  data () {
+    return {}
+  },
+  created () {
+	  this.getAdmins()
+  },
+  methods: {
+    getAdmins () {
+      this.$http.get('http://localhost:8000/api/v1/totalAdmins').then(res => {
+        console.log(res.data)
+      })
+    },
+	getDepts(){
+
+	}
   }
 }
 </script>

@@ -7,7 +7,7 @@
       <div class="row justify-content-center mt-5">
         <div class="container col-8 ">
           <div class=" bg-dark" v-if="success.length">
-            <span v-for="suc in success">
+            <span v-for="(suc,index) in success" :key="index">
               <b-alert show variant="danger" dismissible>
                 {{ suc }}
               </b-alert>
@@ -85,7 +85,7 @@ export default {
     },
     updateDept (edit) {
       this.$http
-        .put(`http://localhost:8000/api/v1/Dept/${edit.id}`,edit)
+        .put(`http://localhost:8000/api/v1/Dept/${edit.id}`, edit)
         .then(res => {
           console.log(res.data)
         })

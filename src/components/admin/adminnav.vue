@@ -2,7 +2,11 @@
   <main>
     <mainnav>
       <b-navbar-brand class="navbar-nav-svg ">
-        <router-link class="text-white" to="/admindash" style="text-decoration:none;">
+        <router-link
+          class="text-white"
+          to="/admindash"
+          style="text-decoration:none;"
+        >
           {{ msg }}
         </router-link>
       </b-navbar-brand>
@@ -21,10 +25,10 @@
               class="text-white"
               to="/dept"
             >
-              Department 
+              Department
             </router-link>
           </b-nav-item>
-           <b-nav-item>
+          <b-nav-item>
             <router-link
               style="text-decoration:none;"
               class="text-white"
@@ -32,15 +36,17 @@
             >
               Admins
             </router-link>
-          </b-nav-item> <b-nav-item>
+          </b-nav-item>
+          <b-nav-item>
             <router-link
               style="text-decoration:none;"
               class="text-white"
-              to="/"
+              to="/createStudent"
             >
               Students
             </router-link>
-          </b-nav-item> <b-nav-item>
+          </b-nav-item>
+          <b-nav-item>
             <router-link
               style="text-decoration:none;"
               class="text-white"
@@ -48,21 +54,22 @@
             >
               Departmental Dues
             </router-link>
-          </b-nav-item> <b-nav-item>
+          </b-nav-item>
+          <b-nav-item>
             <router-link
               style="text-decoration:none;"
               class="text-white"
               to="/about"
             >
-             School Fees
+              School Fees
             </router-link>
-          </b-nav-item> <b-nav-item>
+          </b-nav-item>
+          <b-nav-item>
             <router-link
               style="text-decoration:none;"
               class="text-white"
               to="/about"
             >
-              
             </router-link>
           </b-nav-item>
         </b-navbar-nav>
@@ -78,8 +85,8 @@ export default {
   components: {
     mainnav
   },
-  props:{
-      msg:String
+  props: {
+    msg: String
   }
 }
 </script>
