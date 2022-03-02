@@ -14,7 +14,7 @@
                     <i class="icon-pencil primary font-large-2 float-left"></i>
                   </div>
                   <div class="media-body text-right">
-                    <h3>{{admins}}</h3>
+                    <h3></h3>
                     <span>Admins</span>
                   </div>
                 </div>
@@ -31,7 +31,7 @@
                     <i class="icon-speech warning font-large-2 float-left"></i>
                   </div>
                   <div class="media-body text-right">
-                    <h3>{{students}}</h3>
+                    <h3></h3>
                     <span>Students</span>
                   </div>
                 </div>
@@ -48,7 +48,7 @@
                     <i class="icon-graph success font-large-2 float-left"></i>
                   </div>
                   <div class="media-body text-right">
-                    <h3>{{depts}}</h3>
+                    <h3></h3>
                     <span>Departments</span>
                   </div>
                 </div>
@@ -274,8 +274,7 @@
 
 <script>
 export default {
-  name: 'admindashComponent',
-  props: ['students', 'admins', 'depts']
+  name: 'studentdashComponent'
 }
 </script>
 

@@ -26,6 +26,11 @@
         <span v-for="(err, index) in error" :key="index">
           <b-alert show variant="danger" dismissible> {{ err }} </b-alert>
         </span>
+        <div class=" bg-dark" v-if-else="success.length">
+          <span v-for="(suc, index) in success" :key="index">
+            <b-alert show variant="danger" dismissible> {{ suc }} </b-alert>
+          </span>
+        </div>
       </div>
 
       <label class="mb-2 "> Department </label>
@@ -94,6 +99,7 @@ export default {
   data () {
     return {
       error: [],
+
       form: {
         name: '',
         regnum: '',
@@ -102,7 +108,7 @@ export default {
       }
     }
   },
-  props: ['depts'],
+  props: ['depts', 'success'],
   methods: {
     submit (e) {
       e.preventDefault()

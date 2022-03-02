@@ -20,48 +20,25 @@
       <b-collapse id="navbar-toggle-collapse" is-nav>
         <b-navbar-nav class="mr-auto">
           <b-nav-item>
-            <router-link
-              style="text-decoration:none;"
-              class="text-white"
-              to="/admin/dept"
-            >
-              Department
-            </router-link>
-          </b-nav-item>
-          <b-nav-item>
-            <router-link
-              style="text-decoration:none;"
-              class="text-white"
-              to="/admin/createAdmin"
-            >
-              Admins
-            </router-link>
-          </b-nav-item>
-          <b-nav-item>
-            <router-link
-              style="text-decoration:none;"
-              class="text-white"
-              to="/admin/createStudent"
-            >
-              Students
-            </router-link>
-          </b-nav-item>
-          <b-nav-item>
-            <router-link
-              style="text-decoration:none;"
-              class="text-white"
-              to="/about"
-            >
+            <router-link style="text-decoration:none;" class="text-white" to="">
               Departmental Dues
             </router-link>
           </b-nav-item>
           <b-nav-item>
-            <router-link
-              style="text-decoration:none;"
-              class="text-white"
-              to="/about"
-            >
+            <router-link style="text-decoration:none;" class="text-white" to="">
               School Fees
+            </router-link>
+          </b-nav-item>
+          <b-nav-item>
+            <router-link style="text-decoration:none;" class="text-white" to="">
+            </router-link>
+          </b-nav-item>
+          <b-nav-item>
+            <router-link style="text-decoration:none;" class="text-white" to="">
+            </router-link>
+          </b-nav-item>
+          <b-nav-item>
+            <router-link style="text-decoration:none;" class="text-white" to="">
             </router-link>
           </b-nav-item>
           <b-nav-item>
@@ -83,7 +60,7 @@
 <script>
 import mainnav from '../mainnav.vue'
 export default {
-  name: 'adminnav',
+  name: 'studentnav',
   components: {
     mainnav
   },
@@ -94,7 +71,7 @@ export default {
     logout () {
       localStorage.removeItem('Id')
       localStorage.removeItem('name')
-      this.$router.push('/admin/login')
+      this.$router.push('/studentdash')
     }
   }
 }

@@ -1,7 +1,7 @@
 <template>
   <main>
     <adminnav msg="Admin Dashboard" />
-    <adminDashComponent />
+    <adminDashComponent :admins="admins" :students="students" :depts="depts" />
   </main>
 </template>
 
@@ -15,20 +15,33 @@ export default {
     adminnav
   },
   data () {
-    return {}
+    return {
+      admins: '',
+      depts: '',
+      students: ''
+    }
   },
   created () {
-	  this.getAdmins()
+    this.getAdmins()
+    this.getDepts()
+    this.getStudent()
   },
   methods: {
     getAdmins () {
       this.$http.get('http://localhost:8000/api/v1/totalAdmins').then(res => {
-        console.log(res.data)
+        this.admins = res.data[0].total_admins
       })
     },
-	getDepts(){
-
-	}
+    getDepts () {
+      this.$http.get('http://localhost:8000/api/v1/totalDepts').then(res => {
+        this.depts = res.data[0].total_depts
+      })
+    },
+    getStudent () {
+      this.$http.get('http://localhost:8000/api/v1/totalStudents').then(res => {
+        this.students = res.data[0].total_students
+      })
+    }
   }
 }
 </script>

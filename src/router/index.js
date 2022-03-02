@@ -6,6 +6,8 @@ import adminDash from '../views/Admin/adminDash.vue'
 import department from '../views/Admin/departments.vue'
 import createAdmin from '../views/Admin/createAdmin.vue'
 import createStudent from '../views/Admin/createStudents.vue'
+import studentdash from '../views/Students/studentDash.vue'
+import uploadSchFees from '../views/Students/uploadschFees.vue'
 
 Vue.use(VueRouter)
 
@@ -16,7 +18,7 @@ const routes = [
     component: Home
   },
   {
-    path: '/admin',
+    path: '/admin/login',
     name: 'adminhome',
     component: adminhome
   },
@@ -26,25 +28,45 @@ const routes = [
     component: adminDash,
     beforeEnter: (to, from, next) => {
       const isAuthenticated = localStorage.getItem('Id') ? true : false
-      if (to.name !== 'Home' && !isAuthenticated) next({ name: 'Home' })
+      if (to.name !== 'Home' && !isAuthenticated) next({ name: 'adminhome' })
       else next()
     }
   },
   {
-    path: '/dept',
+    path: '/admin/dept',
     name: 'dept',
     component: department,
     beforeEnter: (to, from, next) => {
       const isAuthenticated = localStorage.getItem('Id') ? true : false
-      if (to.name !== 'Home' && !isAuthenticated) next({ name: 'Home' })
+      if (to.name !== 'Home' && !isAuthenticated) next({ name: 'adminhome' })
       else next()
     }
   },
 
   {
-    path: '/createAdmin',
+    path: '/admin/createAdmin',
     name: 'createAdmin',
     component: createAdmin,
+    beforeEnter: (to, from, next) => {
+      const isAuthenticated = localStorage.getItem('Id') ? true : false
+      if (to.name !== 'Home' && !isAuthenticated) next({ name: 'adminhome' })
+      else next()
+    }
+  },
+  {
+    path: '/admin/createStudent',
+    name: 'createStudent',
+    component: createStudent,
+    beforeEnter: (to, from, next) => {
+      const isAuthenticated = localStorage.getItem('Id') ? true : false
+      if (to.name !== 'Home' && !isAuthenticated) next({ name: 'adminhome' })
+      else next()
+    }
+  },
+  {
+    path: '/studentdash',
+    name: 'studentdash',
+    component: studentdash,
     beforeEnter: (to, from, next) => {
       const isAuthenticated = localStorage.getItem('Id') ? true : false
       if (to.name !== 'Home' && !isAuthenticated) next({ name: 'Home' })
@@ -52,9 +74,9 @@ const routes = [
     }
   },
   {
-    path: '/createStudent',
-    name: 'createStudent',
-    component: createStudent,
+    path: '/student/schfees',
+    name: 'uploadSchFees',
+    component: uploadSchFees,
     beforeEnter: (to, from, next) => {
       const isAuthenticated = localStorage.getItem('Id') ? true : false
       if (to.name !== 'Home' && !isAuthenticated) next({ name: 'Home' })

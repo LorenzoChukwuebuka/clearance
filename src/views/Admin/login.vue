@@ -5,6 +5,13 @@
       <div class="container mt-5">
         <div class="row d-flex justify-content-center">
           <div class="col-md-6">
+            <div class=" bg-dark" v-if="errors.length">
+              <span v-for="(err, index) in errors" :key="index">
+                <b-alert show variant="danger" dismissible>
+                  {{ err }}
+                </b-alert>
+              </span>
+            </div>
             <div class="card px-5 py-5" id="form1">
               <div class="form-data">
                 <div class="forms-inputs mb-4">
@@ -105,15 +112,21 @@ export default {
           .then(res => {
             if (
               res.data.message === 'user not found' ||
-              res.data.message === 'Internal Server Error'
+              res.data.message === 'Password do not match'
             ) {
-              this.$swal({ icon: 'error', text: res.data.message })
-            } else if (res.data[0].type === 0) {
-				this.$router.push('/admindash')
+              this.errors.push(res.data.message)
+            } else if (res.data.message === 'login successful') {
+              if (res.data.type === 0) {
+                localStorage.setItem('Id', res.data.id)
+                localStorage.setItem('name', res.data.username)
+                this.$router.push('/admindash')
+              } else {
+                console.log('greater than zero for now')
+              }
             }
           })
           .catch(err => {
-            console.log('Network Error')
+            console.log(err)
           })
       }
     }

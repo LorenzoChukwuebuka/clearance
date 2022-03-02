@@ -5,13 +5,12 @@
     <div class="container-fluid mt-2">
       <h4 class="text-dark text-center">Add Student</h4>
 
-      <addStudent @form="submitForm" :depts="depts" />
+      <addStudent @form="submitForm" :success="success" :depts="depts" />
 
       <div class="row justify-content-center mt-5">
         <div class="container col-8 ">
-        
           <fetchStudent
-		  :success="success"
+            :success="success"
             @Id="delStudent"
             :students="students"
             :depts="depts"
@@ -53,6 +52,10 @@ export default {
           if (res.data.message === 'successfull') {
             this.success.push('Insert Successful')
           }
+
+          setTimeout(() => {
+            window.location.reload()
+          }, 2000)
         })
     },
     getDepartment () {

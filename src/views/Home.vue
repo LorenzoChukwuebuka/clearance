@@ -1,6 +1,6 @@
 <template>
   <main>
-    <mainnav />
+    <mainnav msg="Student Login" />
     <div class="container">
       <div class="container mt-5">
         <div class="row d-flex justify-content-center">
@@ -92,21 +92,31 @@ export default {
       }
     },
 
-    submit () {
+    submit () { 
       this.validate()
       if (this.valid) {
         this.submitted = true
         let data = new Object()
-        data.username = this.user
+        data.regNum = this.user
         data.password = this.password
 
         this.$http
-          .post('http://localhost:8000/api/v1/adminlog', data)
+          .post('http://localhost:8000/api/v1/studentlog', data)
           .then(res => {
-            console.log(res.data)
+            if (
+              res.data.message === 'user not found' ||
+              res.data.message === 'Password does not match'
+            ) {
+              console.log('error')
+            } else if (res.data.message === 'login successful') {
+              localStorage.setItem('Id', res.data.id)
+              localStorage.setItem('name', res.data.name)
+
+              this.$router.push('/studentdash')
+            }
           })
           .catch(err => {
-            console.log('Network Error')
+            console.log(err)
           })
       }
     }
