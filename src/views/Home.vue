@@ -92,7 +92,7 @@ export default {
       }
     },
 
-    submit () { 
+    submit () {
       this.validate()
       if (this.valid) {
         this.submitted = true
@@ -107,7 +107,7 @@ export default {
               res.data.message === 'user not found' ||
               res.data.message === 'Password does not match'
             ) {
-              console.log('error')
+              this.errors.push('Incorrect username or password')
             } else if (res.data.message === 'login successful') {
               localStorage.setItem('Id', res.data.id)
               localStorage.setItem('name', res.data.name)

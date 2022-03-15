@@ -25,13 +25,15 @@ import {
   CarouselPlugin,
   CalendarPlugin
 } from 'bootstrap-vue'
-import VueSweetalert2 from 'vue-sweetalert2';
+import VueSweetalert2 from 'vue-sweetalert2'
 import Axios from 'axios'
 
 Vue.use(CarouselPlugin)
 Vue.use(TabsPlugin)
 Vue.use(VueSweetalert2)
 Vue.prototype.$http = Axios
+Vue.prototype.$id = localStorage.getItem('Id')
+Vue.prototype.$name = localStorage.getItem('name')
 
 Vue.use(SpinnerPlugin)
 Vue.use(CardPlugin)

@@ -46,7 +46,7 @@
 
     <b-modal id="modal-2" hide-footer title="Edit Department">
       <div class=" bg-dark" v-if="error.length">
-        <span v-for="err in error">
+        <span v-for="(err, index) in error" :key="index">
           <b-alert show variant="danger" dismissible> {{ err }} </b-alert>
         </span>
       </div>
@@ -117,9 +117,9 @@ export default {
     submitEdit () {
       if (!(this.edit.id && this.edit.dept && this.edit.schId)) {
         this.error.push('Incorrect input')
-      }else{
-		  this.$emit('edit',this.edit)
-	  }
+      } else {
+        this.$emit('edit', this.edit)
+      }
     }
   }
 }

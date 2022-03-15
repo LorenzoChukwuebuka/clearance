@@ -7,7 +7,7 @@
         type="button"
         id="button-addon1"
       >
-        Upload school fees receipt
+        Upload School Fees Receipts
       </button>
 
       <input
@@ -26,6 +26,12 @@
         <div class=" bg-dark" v-if="error.length">
           <span v-for="(err, index) in error" :key="index">
             <b-alert show variant="danger" dismissible> {{ err }} </b-alert>
+          </span>
+        </div>
+
+        <div class=" bg-dark" v-if-else="success.length">
+          <span v-for="(suc, index) in success" :key="index">
+            <b-alert show variant="danger" dismissible> {{ suc }} </b-alert>
           </span>
         </div>
 
@@ -64,6 +70,7 @@ export default {
       form: {},
       error: [],
       images: [],
+      success: [],
       id: localStorage.getItem('Id')
     }
   },
@@ -91,15 +98,12 @@ export default {
       }
       formData.append('studentId', self.id)
 
-      // Display the key/value pairs
-      //   for (var pair of formData.entries()) {
-      //     console.log(pair[0] + ', ' + pair[1])
-      //   }
-
       self.$http
-        .post('http://localhost:8000/api/v1/deptDues', formData)
+        .post('http://localhost:8000/api/v1/SchFees', formData)
         .then(res => {
-          console.log(res.data)
+          if (res.data.message === 'inserted successfully') {
+            self.success.push(res.data.message)
+          }
         })
         .catch(err => {
           console.log(err)
