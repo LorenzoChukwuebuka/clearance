@@ -1,7 +1,7 @@
 <template>
   <main>
-    <h4 class="text-dark text-center">School Fees</h4>
-    <table class="table mt-5 text-dark" v-if="schFees.length != 0">
+    <h4 class="text-dark text-center"> Departmental Dues </h4>
+    <table class="table mt-5 text-dark" v-if="deptDues.length != 0">
       <thead>
         <tr>
           <th scope="col">#</th>
@@ -14,21 +14,21 @@
         </tr>
       </thead>
 
-      <tbody v-for="(schFee, index) in schFees" :key="index" :value="schFee.id">
+      <tbody v-for="(deptDue, index) in deptDues" :key="index" :value=" deptDue.id">
         <tr>
           <td>{{ index + 1 }}</td>
-          <td>{{ schFee.first_yr }}</td>
-          <td>{{ schFee.second_yr }}</td>
-          <td>{{ schFee.third_yr }}</td>
-          <td>{{ schFee.fourth_yr }}</td>
-          <td>{{ schFee.fifth_yr }}</td>
-          <td>{{ schFee.status }}</td>
+          <td>{{  deptDue.first_yr }}</td>
+          <td>{{  deptDue.second_yr }}</td>
+          <td>{{  deptDue.third_yr }}</td>
+          <td>{{  deptDue.fourth_yr }}</td>
+          <td>{{  deptDue.fifth_yr }}</td>
+          <td>{{  deptDue.status }}</td>
         </tr>
       </tbody>
     </table>
     <small v-else>
       <p class="text-center text-dark">
-        You have not added any courses yet
+        You have not uploaded any dues yet
       </p>
     </small>
 
@@ -41,8 +41,8 @@
 
 <script>
 export default {
-  name: 'fetchSchFees',
-  props: ['schFees'],
+  name: 'fetchdeptDues',
+  props: ['deptDues'],
   data () {
     return {
       error: []

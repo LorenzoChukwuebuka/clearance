@@ -13,7 +13,7 @@
               </b-alert>
             </span>
           </div>
-		 
+		 <fetchdeptDues :deptDues="deptDues"/>
         </div>
       </div>
     </div>
@@ -23,10 +23,11 @@
 <script>
  import studentnav from "../../components/student/studentnav.vue"
  import addDeptdues from "../../components/student/deptdues/addDeptdues.vue"
+ import fetchdeptDues from "../../components/student/deptdues/fetchdeptdues.vue"
 export default {
   name: 'uploadDeptDues',
   components: {
-   studentnav,addDeptdues
+   studentnav,addDeptdues,fetchdeptDues
   },
   data () {
     return {

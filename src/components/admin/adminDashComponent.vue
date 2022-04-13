@@ -65,8 +65,8 @@
                     <i class="icon-pointer danger font-large-2 float-left"></i>
                   </div>
                   <div class="media-body text-right">
-                    <h3>423</h3>
-                    <span>Total pending request for school fees </span>
+                    <h3>{{pendingschfees}}</h3>
+                    <span> Pending unapproved School fees </span>
                   </div>
                 </div>
               </div>
@@ -82,8 +82,8 @@
               <div class="card-body">
                 <div class="media d-flex">
                   <div class="media-body text-left">
-                    <h3 class="danger">278</h3>
-                    <span>New Projects</span>
+                    <h3 class="danger">{{pendingdeptdues}}</h3>
+                    <span> Pending unapproved departmental dues </span>
                   </div>
                   <div class="align-self-center">
                     <i class="icon-rocket danger font-large-2 float-right"></i>
@@ -275,7 +275,7 @@
 <script>
 export default {
   name: 'admindashComponent',
-  props: ['students', 'admins', 'depts']
+  props: ['students', 'admins', 'depts','pendingschfees','pendingdeptdues']
 }
 </script>
 
