@@ -8,6 +8,7 @@ import createAdmin from '../views/Admin/createAdmin.vue'
 import createStudent from '../views/Admin/createStudents.vue'
 import studentdash from '../views/Students/studentDash.vue'
 import uploadSchFees from '../views/Students/uploadschFees.vue'
+import uploadDeptDues from '../views/Students/uploadDeptdues.vue'
 
 Vue.use(VueRouter)
 
@@ -77,6 +78,16 @@ const routes = [
     path: '/student/schfees',
     name: 'uploadSchFees',
     component: uploadSchFees,
+    beforeEnter: (to, from, next) => {
+      const isAuthenticated = localStorage.getItem('Id') ? true : false
+      if (to.name !== 'Home' && !isAuthenticated) next({ name: 'Home' })
+      else next()
+    }
+  },
+  {
+    path: '/student/deptdues',
+    name: 'uploadDeptDues',
+    component: uploadDeptDues,
     beforeEnter: (to, from, next) => {
       const isAuthenticated = localStorage.getItem('Id') ? true : false
       if (to.name !== 'Home' && !isAuthenticated) next({ name: 'Home' })

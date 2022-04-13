@@ -4,7 +4,7 @@
       <b-navbar-brand class="navbar-nav-svg ">
         <router-link
           class="text-white"
-          to="/admindash"
+          to="/studentdash"
           style="text-decoration:none;"
         >
           {{ msg }}
@@ -20,7 +20,7 @@
       <b-collapse id="navbar-toggle-collapse" is-nav>
         <b-navbar-nav class="mr-auto">
           <b-nav-item>
-            <router-link style="text-decoration:none;" class="text-white" to="">
+            <router-link style="text-decoration:none;" class="text-white" to="/student/deptdues">
               Departmental Dues
             </router-link>
           </b-nav-item>
