@@ -13,7 +13,7 @@
               </b-alert>
             </span>
           </div>
-		 <fetchdeptDues :deptDues="deptDues"/>
+		       <fetchdeptDues :deptDues="deptDues"/>
         </div>
       </div>
     </div>

@@ -1,6 +1,6 @@
 <template>
   <main>
-    <div class="input-group mb-3 w-50  mx-auto">
+    <div class="input-group mb-3 w-50 mx-auto">
       <button
         v-b-modal.modal-1
         class="btn btn-outline-secondary"
@@ -22,13 +22,13 @@
     <!-- add modal ---->
 
     <b-modal id="modal-1" hide-footer title="Add Department">
-      <div class=" bg-dark" v-if="error.length">
-        <span v-for="err in error">
+      <div class="bg-dark" v-if="error.length">
+        <span v-for="(err,index) in error" :key="index">
           <b-alert show variant="danger" dismissible> {{ err }} </b-alert>
         </span>
       </div>
 
-      <label class="mb-2 "> School </label>
+      <label class="mb-2"> School </label>
       <div class="input-group input-group-sm mb-3">
         <b-form-select
           class="px-2 py-2 pb-2 mt-1 mb-3 w-100"
@@ -68,28 +68,28 @@
 
 <script>
 export default {
-  name: 'addDept',
-  data () {
+  name: "addDept",
+  data() {
     return {
       form: {
-        dept: '',
-        schId: ''
+        dept: "",
+        schId: "",
       },
-      error: []
-    }
+      error: [],
+    };
   },
-  props: ['schools'],
+  props: ["schools"],
 
   methods: {
-    submit (e) {
+    submit(e) {
       if (!(this.form.dept && this.form.schId)) {
-        this.error.push('Invalid inputs')
+        this.error.push("Invalid inputs");
       } else {
-        this.$emit('form',this.form)
+        this.$emit("form", this.form);
       }
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style></style>

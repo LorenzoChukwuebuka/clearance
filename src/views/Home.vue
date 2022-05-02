@@ -1,6 +1,6 @@
 <template>
   <main>
-    <mainnav msg="Student Login" />
+    <mainnav msg="Student Login"  signup="Student's Clearance Form" />
     <div class="container">
       <div class="container mt-5">
         <div class="row d-flex justify-content-center">

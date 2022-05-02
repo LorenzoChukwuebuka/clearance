@@ -37,21 +37,19 @@
       </tbody>
     </table>
     <small v-else>
-      <p class="text-center text-dark">
-        You have not added any courses yet
-      </p>
+      <p class="text-center text-dark">You have not added any courses yet</p>
     </small>
 
     <!-- add modal ---->
 
     <b-modal id="modal-2" hide-footer title="Edit Department">
-      <div class=" bg-dark" v-if="error.length">
+      <div class="bg-dark" v-if="error.length">
         <span v-for="(err, index) in error" :key="index">
           <b-alert show variant="danger" dismissible> {{ err }} </b-alert>
         </span>
       </div>
 
-      <label class="mb-2 "> School </label>
+      <label class="mb-2"> School </label>
       <div class="input-group input-group-sm mb-3">
         <b-form-select
           class="px-2 py-2 pb-2 mt-1 mb-3 w-100"
@@ -91,38 +89,38 @@
 
 <script>
 export default {
-  name: 'fetchdeptComponent',
-  data () {
+  name: "fetchdeptComponent",
+  data() {
     return {
       edited: null,
       error: [],
       edit: {
-        dept: '',
-        schId: '',
-        id: ''
-      }
-    }
+        dept: "",
+        schId: "",
+        id: "",
+      },
+    };
   },
-  props: ['depts', 'schools'],
+  props: ["depts", "schools"],
   methods: {
-    deleteDept (id) {
-      this.$emit('Id', id)
+    deleteDept(id) {
+      this.$emit("Id", id);
     },
-    startEdit (dept) {
-      this.edited = dept
-      this.edit.id = this.edited.id
-      this.edit.schId = this.edited.school_id
-      this.edit.dept = this.edited.department
+    startEdit(dept) {
+      this.edited = dept;
+      this.edit.id = this.edited.id;
+      this.edit.schId = this.edited.school_id;
+      this.edit.dept = this.edited.department;
     },
-    submitEdit () {
+    submitEdit() {
       if (!(this.edit.id && this.edit.dept && this.edit.schId)) {
-        this.error.push('Incorrect input')
+        this.error.push("Incorrect input");
       } else {
-        this.$emit('edit', this.edit)
+        this.$emit("edit", this.edit);
       }
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style></style>

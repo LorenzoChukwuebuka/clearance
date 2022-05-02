@@ -41,9 +41,9 @@
             <router-link
               style="text-decoration:none;"
               class="text-white"
-              to="/admin/createStudent"
+              to="/admin/pendingform"
             >
-              Students
+              Forms
             </router-link>
           </b-nav-item>
           <b-nav-item>
