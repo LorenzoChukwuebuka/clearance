@@ -1,6 +1,6 @@
 <template>
   <main>
-    <mainnav msg="Student Login"  signup="Student's Clearance Form" />
+    <mainnav msg="Student Login" signup="Student's Clearance Form" />
     <div class="container">
       <div class="container mt-5">
         <div class="row d-flex justify-content-center">
@@ -15,7 +15,7 @@
                     v-model="user"
                     v-bind:class="{
                       'form-control': true,
-                      'is-invalid': !validuser(user) && userBlured
+                      'is-invalid': !validuser(user) && userBlured,
                     }"
                     v-on:blur="userBlured = true"
                   />
@@ -29,7 +29,7 @@
                     v-model="password"
                     v-bind:class="{
                       'form-control': true,
-                      'is-invalid': !validPassword(password) && passwordBlured
+                      'is-invalid': !validPassword(password) && passwordBlured,
                     }"
                     v-on:blur="passwordBlured = true"
                   />
@@ -54,74 +54,74 @@
   </main>
 </template>
 <script>
-import mainnav from '@/components/mainnav.vue'
+import mainnav from "@/components/mainnav.vue";
 export default {
-  name: 'home',
+  name: "home",
   components: {
-    mainnav
+    mainnav,
   },
-  data () {
+  data() {
     return {
-      user: '',
+      user: "",
       userBlured: false,
       valid: false,
       submitted: false,
-      password: '',
+      password: "",
       passwordBlured: false,
-      errors: []
-    }
+      errors: [],
+    };
   },
   methods: {
-    validate () {
-      this.userBlured = true
-      this.passwordBlured = true
+    validate() {
+      this.userBlured = true;
+      this.passwordBlured = true;
       if (this.validuser(this.user) && this.validPassword(this.password)) {
-        this.valid = true
+        this.valid = true;
       }
     },
 
-    validuser (user) {
+    validuser(user) {
       if (user.length >= 5) {
-        return true
+        return true;
       }
     },
 
-    validPassword (password) {
+    validPassword(password) {
       if (password.length >= 5) {
-        return true
+        return true;
       }
     },
 
-    submit () {
-      this.validate()
+    submit() {
+      this.validate();
       if (this.valid) {
-        this.submitted = true
-        let data = new Object()
-        data.regNum = this.user
-        data.password = this.password
+        this.submitted = true;
+        let data = new Object();
+        data.regNum = this.user;
+        data.password = this.password;
 
         this.$http
-          .post('http://localhost:8000/api/v1/studentlog', data)
-          .then(res => {
+          .post("http://localhost:8000/api/v1/studentlog", data)
+          .then((res) => {
             if (
-              res.data.message === 'user not found' ||
-              res.data.message === 'Password does not match'
+              res.data.message === "user not found" ||
+              res.data.message === "Password does not match"
             ) {
-              this.errors.push('Incorrect username or password')
-            } else if (res.data.message === 'login successful') {
-              localStorage.setItem('Id', res.data.id)
-              localStorage.setItem('name', res.data.name)
+              alert("Incorrect username or password");
+            } else if (res.data.message === "login successful") {
+              localStorage.setItem("Id", res.data.id);
+              localStorage.setItem("name", res.data.name);
 
-              this.$router.push('/studentdash')
+              this.$router.push("/studentdash");
             }
           })
-          .catch(err => {
-            console.log(err)
-          })
+          .catch((err) => {
+            console.log(err);
+          });
       }
-    }
-  }
-}
+    },
+  },
+};
 </script>
 <style scoped>
 body {
