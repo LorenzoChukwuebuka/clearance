@@ -20,7 +20,7 @@
                     }"
                     v-on:blur="userBlured = true"
                   />
-                  <div class="invalid-feedback">required!</div>
+                  <div class="invalid-feedback">Name is required!</div>
                 </div>
                 <div class="forms-inputs mb-4">
                   <span> Reg Number </span>
@@ -34,7 +34,7 @@
                     }"
                     v-on:blur="userBlured = true"
                   />
-                  <div class="invalid-feedback">required!</div>
+                  <div class="invalid-feedback">Reg Num is required and should not be less than 10</div>
                 </div>
                 <div class="forms-inputs mb-4">
                   <span>Year of Graduation </span>
@@ -64,7 +64,7 @@
                     }"
                     v-on:blur="userBlured = true"
                   />
-                  <div class="invalid-feedback">required!</div>
+                  <div class="invalid-feedback">Supervisor is required!</div>
                 </div>
 
                 <div class="forms-inputs mb-4">
@@ -78,9 +78,9 @@
                       'is-invalid':
                         !validcourseadviser(form.course_adviser) && userBlured,
                     }"
-                    v-on:blur="passwordBlured = true"
+                    v-on:blur="userBlured = true"
                   />
-                  <div class="invalid-feedback">required!</div>
+                  <div class="invalid-feedback">Course Adviser is required!</div>
                 </div>
 
                 <div class="forms-inputs mb-4">
@@ -95,10 +95,10 @@
                       'is-invalid':
                         !validdeptadmin(form.dept) && userBlured,
                     }"
-                    v-on:blur="passwordBlured = true"
+                    v-on:blur="userBlured = true"
                   />
                   
-                  <div class="invalid-feedback">required!</div>
+                  <div class="invalid-feedback">Dept is required!</div>
                 </div>
 
                 <div class="forms-inputs mb-4">
@@ -112,7 +112,7 @@
                       'is-invalid':
                         !validdeptadmin(form.deptadmin) && userBlured,
                     }"
-                    v-on:blur="passwordBlured = true"
+                    v-on:blur="userBlured = true"
                   />
                   <div class="invalid-feedback">required!</div>
                 </div>
@@ -222,6 +222,8 @@ export default {
 
     submit(e) {
       e.preventDefault();
+      this.validate()
+      if(this.valid)
       console.log(this.form);
     },
   },
