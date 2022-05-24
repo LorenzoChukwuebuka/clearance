@@ -52,7 +52,7 @@
               class="text-white"
               to="/admin/pendingschfees"
             >
-              Departmental Dues
+             School fees
             </router-link>
           </b-nav-item>
           <b-nav-item>
@@ -61,7 +61,7 @@
               class="text-white"
               to="/about"
             >
-              School Fees
+              Departmental Dues
             </router-link>
           </b-nav-item>
           <b-nav-item>

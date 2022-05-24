@@ -42,7 +42,7 @@
       </tbody>
     </table>
     <small v-else>
-      <p class="text-center text-dark">You have not added any courses yet</p>
+      <p class="text-center text-dark">There are no pending clearance forms </p>
     </small>
   </main>
 </template>
@@ -53,7 +53,7 @@ export default {
 
   methods:{
 	  approved(id){
-          console.log(id)
+           this.$emit("Id", id);
 	  }
   }
 };

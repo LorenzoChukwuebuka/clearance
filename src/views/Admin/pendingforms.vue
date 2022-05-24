@@ -6,7 +6,7 @@
       <h4 class="text-dark text-center">Pending Clearance forms</h4>
 
       <div class="row justify-content-center mt-5">
-        <approveclearanceform :pending_form="pending_form" />
+        <approveclearanceform :pending_form="pending_form" @Id="approveform"/>
       </div>
     </div>
   </main>
@@ -35,6 +35,20 @@ export default {
         this.pending_form = res.data;
       });
     },
+
+    async approveform(Id){
+     try {
+		  if (window.confirm("Do you want to approve?")) {
+          const res = await this.$http.put(
+            `http://localhost:8000/api/v1/approvependingform/${Id}`
+          );
+        } else {
+          return;
+        }
+	 } catch (error) {
+		 
+	 }
+    }
   },
 };
 </script>

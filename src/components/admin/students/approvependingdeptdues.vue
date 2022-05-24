@@ -38,3 +38,8 @@
     <!-- end of add modal --->
   </main>
 </template>
+<script>
+export default {
+  name:"approvedeptdues"
+}
+</script>
