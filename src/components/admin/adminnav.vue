@@ -50,7 +50,7 @@
             <router-link
               style="text-decoration:none;"
               class="text-white"
-              to="/about"
+              to="/admin/pendingschfees"
             >
               Departmental Dues
             </router-link>

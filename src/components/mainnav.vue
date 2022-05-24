@@ -3,7 +3,7 @@
     <b-navbar
       id="navbar"
       toggleable
-      class="navbar navbar-hide-on-scroll navbar-expand-sm navbar-collapse mb-0 px-3 py-2"
+      class="navbar navbar-hide-on-scroll  navbar-expand-sm navbar-collapse mb-0 px-3 py-2"
       type="dark"
       variant="dark"
     >

@@ -13,7 +13,7 @@
               </b-alert>
             </span>
           </div>
-		  <fetchschfees :schFees="schFees"/>
+		       <fetchschfees :schFees="schFees"/>
         </div>
       </div>
     </div>

@@ -10,6 +10,8 @@ import studentdash from "../views/Students/studentDash.vue";
 import uploadSchFees from "../views/Students/uploadschFees.vue";
 import uploadDeptDues from "../views/Students/uploadDeptdues.vue";
 import clearanceform from "../views/Students/clearanceform.vue";
+import pendingdeptdues from "../views/Admin/pendingdeptdues.vue";
+import pendingschfees from "../views/Admin/pendingschfees.vue"
 
 Vue.use(VueRouter);
 
@@ -97,12 +99,35 @@ const routes = [
       else next();
     },
   },
+  {
+    path: "/admin/pendingdeptdues",
+    name: "pendingdeptdues",
+    component: pendingdeptdues,
+    beforeEnter: (to, from, next) => {
+      const isAuthenticated = localStorage.getItem("Id") ? true : false;
+      if (to.name !== "Home" && !isAuthenticated) next({ name: "Home" });
+      else next();
+    },
+  },
+
+  {
+    path: "/admin/pendingschfees",
+    name: "pendingschfees",
+    component: pendingschfees,
+    beforeEnter: (to, from, next) => {
+      const isAuthenticated = localStorage.getItem("Id") ? true : false;
+      if (to.name !== "Home" && !isAuthenticated) next({ name: "Home" });
+      else next();
+    },
+  },
 
   {
     path: "/form",
     name: "form",
     component: clearanceform,
   },
+
+
 
   {
     path: "/about",

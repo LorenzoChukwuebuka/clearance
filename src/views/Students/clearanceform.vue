@@ -34,7 +34,9 @@
                     }"
                     v-on:blur="userBlured = true"
                   />
-                  <div class="invalid-feedback">Reg Num is required and should not be less than 10</div>
+                  <div class="invalid-feedback">
+                    Reg Num is required and should not be less than 10
+                  </div>
                 </div>
                 <div class="forms-inputs mb-4">
                   <span>Year of Graduation </span>
@@ -80,24 +82,25 @@
                     }"
                     v-on:blur="userBlured = true"
                   />
-                  <div class="invalid-feedback">Course Adviser is required!</div>
+                  <div class="invalid-feedback">
+                    Course Adviser is required!
+                  </div>
                 </div>
 
                 <div class="forms-inputs mb-4">
                   <span>Department </span>
-                   
-                     <input
+
+                  <input
                     autocomplete="off"
                     type="text"
                     v-model="form.dept"
                     v-bind:class="{
                       'form-control': true,
-                      'is-invalid':
-                        !validdeptadmin(form.dept) && userBlured,
+                      'is-invalid': !validdeptadmin(form.dept) && userBlured,
                     }"
                     v-on:blur="userBlured = true"
                   />
-                  
+
                   <div class="invalid-feedback">Dept is required!</div>
                 </div>
 
@@ -146,7 +149,7 @@ export default {
         supervisor: "",
         course_adviser: "",
         deptadmin: "",
-		dept:""
+        dept: "",
       },
 
       userBlured: false,
@@ -220,11 +223,26 @@ export default {
       });
     },
 
-    submit(e) {
-      e.preventDefault();
-      this.validate()
-      if(this.valid)
-      console.log(this.form);
+    async submit(e) {
+      try {
+        e.preventDefault();
+
+        let res = await this.$http.post("http://localhost:8000/api/v1/form");
+
+        if (res.data.message === "submission successful") {
+          alert("submission successful. Wait for approval");
+        }
+
+        if (res.data.message === "Invalid Inputs") {
+          alert("invalid inputs");
+        }
+
+        if (res.data.message === "Student already exists!") {
+          alert("Student already exists!");
+        }
+      } catch (error) {
+        console.log(error);
+      }
     },
   },
 };

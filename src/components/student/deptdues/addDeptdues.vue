@@ -99,7 +99,7 @@ export default {
       formData.append('studentId', self.id)
 
       self.$http
-        .post('http://localhost:8000/api/v1/SchFees', formData)
+        .post('http://localhost:8000/api/v1/deptDues', formData)
         .then(res => {
           if (res.data.message === 'inserted successfully') {
             self.success.push(res.data.message)

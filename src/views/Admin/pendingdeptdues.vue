@@ -14,6 +14,13 @@
 
 <script>
 export default {
-    name:"pendingdeptdues"
+    name:"pendingdeptdues",
+    components:{},
+	data(){},
+	mounted(){},
+	methods:{
+
+	}
+
 }
 </script>

@@ -28,7 +28,7 @@
     </table>
     <small v-else>
       <p class="text-center text-dark">
-        You have not added any courses yet
+        You have not added any school fees  yet
       </p>
     </small>
 
