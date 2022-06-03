@@ -14,7 +14,6 @@
           <th scope="col">Department</th>
           <th scope="col">Date created</th>
           <th scope="col">status</th>
- 
         </tr>
       </thead>
 
@@ -35,14 +34,18 @@
           <td>{{ pending.date_created }}</td>
 
           <td>
-          {{ pending.status }}  <b-icon icon="pen" @click="approved(pending.id)" variant="success"></b-icon>
+            {{ pending.status }}
+            <b-icon
+              icon="pen"
+              @click="approved(pending.id)"
+              variant="success"
+            ></b-icon>
           </td>
-           
         </tr>
       </tbody>
     </table>
     <small v-else>
-      <p class="text-center text-dark">There are no pending clearance forms </p>
+      <p class="text-center text-dark">There are no pending clearance forms</p>
     </small>
   </main>
 </template>
@@ -51,10 +54,10 @@ export default {
   name: "approveclearanceform",
   props: ["pending_form"],
 
-  methods:{
-	  approved(id){
-           this.$emit("Id", id);
-	  }
-  }
+  methods: {
+    approved(id) {
+      this.$emit("Id", id);
+    },
+  },
 };
 </script>

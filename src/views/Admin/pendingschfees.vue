@@ -10,6 +10,8 @@
           :pendingSchfees="pendingSchfees"
           @Id="approveschfees"
         />
+        <br/>
+        <approvedschfees :approvedSchFees="approvedSchFees" />
       </div>
     </div>
   </main>
@@ -18,19 +20,23 @@
 <script>
 import adminnav from "@/components/admin/adminnav.vue";
 import approvependingschfees from "../../components/admin/students/approvependingschfees.vue";
+import approvedschfees from "../../components/admin/students/approvedschfees.vue";
 export default {
   name: "pendingschfees",
   data() {
     return {
       pendingSchfees: [],
+      approvedSchFees: [],
     };
   },
   components: {
     adminnav,
     approvependingschfees,
+    approvedschfees,
   },
   mounted() {
     this.getpendingschfees();
+    this.getApprovedSchFees();
   },
   methods: {
     async getpendingschfees() {
@@ -50,15 +56,24 @@ export default {
         if (window.confirm("Do you want to approve?")) {
           const res = await this.$http.put(
             `http://localhost:8000/api/v1/approveSchFees/${Id}`
-
-			  
           );
 
-		  alert(res.data.message)
+          alert(res.data.message);
         } else {
           return;
         }
       } catch (error) {}
+    },
+    async getApprovedSchFees() {
+      try {
+        const res = await this.$http.get(
+          "http://localhost:8000/api/v1/getApprovedSchFees"
+        );
+
+        this.approvedSchFees = res.data;
+      } catch (error) {
+        console.log(error);
+      }
     },
   },
 };
