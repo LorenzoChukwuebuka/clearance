@@ -59,7 +59,7 @@
             <router-link
               style="text-decoration:none;"
               class="text-white"
-              to="/about"
+              to="/admin/pendingdeptdues"
             >
               Departmental Dues
             </router-link>

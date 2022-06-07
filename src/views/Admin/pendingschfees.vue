@@ -62,7 +62,9 @@ export default {
         } else {
           return;
         }
-      } catch (error) {}
+      } catch (error) {
+		  console.log(error)
+	  }
     },
     async getApprovedSchFees() {
       try {
