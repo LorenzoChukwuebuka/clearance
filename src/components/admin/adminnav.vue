@@ -1,11 +1,11 @@
 <template>
   <main>
     <mainnav>
-      <b-navbar-brand class="navbar-nav-svg ">
+      <b-navbar-brand class="navbar-nav-svg">
         <router-link
           class="text-white"
           to="/admindash"
-          style="text-decoration:none;"
+          style="text-decoration: none"
         >
           {{ msg }}
         </router-link>
@@ -21,7 +21,7 @@
         <b-navbar-nav class="mr-auto">
           <b-nav-item>
             <router-link
-              style="text-decoration:none;"
+              style="text-decoration: none"
               class="text-white"
               to="/admin/dept"
             >
@@ -30,7 +30,7 @@
           </b-nav-item>
           <b-nav-item>
             <router-link
-              style="text-decoration:none;"
+              style="text-decoration: none"
               class="text-white"
               to="/admin/createAdmin"
             >
@@ -39,7 +39,7 @@
           </b-nav-item>
           <b-nav-item>
             <router-link
-              style="text-decoration:none;"
+              style="text-decoration: none"
               class="text-white"
               to="/admin/pendingform"
             >
@@ -48,16 +48,16 @@
           </b-nav-item>
           <b-nav-item>
             <router-link
-              style="text-decoration:none;"
+              style="text-decoration: none"
               class="text-white"
               to="/admin/pendingschfees"
             >
-             School fees
+              School fees
             </router-link>
           </b-nav-item>
           <b-nav-item>
             <router-link
-              style="text-decoration:none;"
+              style="text-decoration: none"
               class="text-white"
               to="/admin/pendingdeptdues"
             >
@@ -65,9 +65,37 @@
             </router-link>
           </b-nav-item>
           <b-nav-item>
+            <a href="#" style="text-decoration: none" class="text-white">
+              library
+            </a>
+          </b-nav-item>
+          <b-nav-item>
+            <a href="#" style="text-decoration: none" class="text-white">
+              medical
+            </a>
+          </b-nav-item>
+          <b-nav-item>
+            <a href="#" style="text-decoration: none" class="text-white">
+              student affairs
+            </a>
+          </b-nav-item>
+
+          <b-nav-item>
+            <a href="#" style="text-decoration: none" class="text-white">
+              Dean of School
+            </a>
+          </b-nav-item>
+
+          <b-nav-item>
+            <a href="#" style="text-decoration: none" class="text-white">
+              School Registry
+            </a>
+          </b-nav-item>
+
+          <b-nav-item>
             <a
               href="#"
-              style="text-decoration:none;"
+              style="text-decoration: none"
               class="text-white"
               @click="logout"
             >
@@ -81,23 +109,23 @@
 </template>
 
 <script>
-import mainnav from '../mainnav.vue'
+import mainnav from "../mainnav.vue";
 export default {
-  name: 'adminnav',
+  name: "adminnav",
   components: {
-    mainnav
+    mainnav,
   },
   props: {
-    msg: String
+    msg: String,
   },
   methods: {
-    logout () {
-      localStorage.removeItem('Id')
-      localStorage.removeItem('name')
-      this.$router.push('/admin/login')
-    }
-  }
-}
+    logout() {
+      localStorage.removeItem("Id");
+      localStorage.removeItem("name");
+      this.$router.push("/admin/login");
+    },
+  },
+};
 </script>
 
 <style></style>

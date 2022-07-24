@@ -2,7 +2,7 @@
   <main>
     <adminnav msg="Submission Review" />
 
-	<img src="..." class="img-fluid" alt="Responsive image"/>
+    <img :src="fileUrl" class="img-fluid" alt="Responsive image" />
   </main>
 </template>
 
@@ -16,7 +16,7 @@ export default {
   data() {
     return {
       filename: null,
-	  fileUrl:null
+      fileUrl: null,
     };
   },
   created() {
@@ -24,8 +24,18 @@ export default {
       this.$route.push("/admindashboard");
     }
     this.filename = this.$route.query.year;
-	this.fileUrl = `http://localhost:8000/api/deptdues/${this.filename}`;
-  
+  },
+  mounted() {
+    this.getFile();
+  },
+  methods: {
+    getFile() {
+      this.$http
+        .get(`http://localhost:8000/deptDues/${this.filename}`)
+        .then((res) => {
+          this.fileUrl = res.data;
+        });
+    },
   },
 };
 </script>

@@ -22,19 +22,64 @@
         <tr>
           <td>{{ index + 1 }}</td>
           <td>
-            <router-link to=""> {{ schfees.first_yr }} </router-link>
+            <router-link
+              :to="{
+                name: 'ischfees',
+                query: {
+                  year: schfees.first_yr,
+                },
+              }"
+            >
+              {{ schfees.first_yr }}
+            </router-link>
           </td>
           <td>
-            <router-link to=""> {{ schfees.second_yr }}</router-link>
+            <router-link
+              :to="{
+                name: 'ischfees',
+                query: {
+                  year: schfees.second_yr,
+                },
+              }"
+            >
+              {{ schfees.second_yr }}</router-link
+            >
           </td>
           <td>
-            <router-link to=""> {{ schfees.third_yr }} </router-link>
+            <router-link
+              :to="{
+                name: 'ischfees',
+                query: {
+                  year: schfees.third_yr,
+                },
+              }"
+            >
+              {{ schfees.third_yr }}
+            </router-link>
           </td>
           <td>
-            <router-link to=""> {{ schfees.fourth_yr }}</router-link>
+            <router-link
+              :to="{
+                name: 'ischfees',
+                query: {
+                  year: schfees.fourth_yr,
+                },
+              }"
+            >
+              {{ schfees.fourth_yr }}</router-link
+            >
           </td>
           <td>
-            <router-link to=""> {{ schfees.fifth_yr }}</router-link>
+            <router-link
+              :to="{
+                name: 'ischfees',
+                query: {
+                  year: schfees.fifth_yr,
+                },
+              }"
+            >
+              {{ schfees.fifth_yr }}</router-link
+            >
           </td>
           <td>
             <router-link to=""> {{ schfees.status }}</router-link>
