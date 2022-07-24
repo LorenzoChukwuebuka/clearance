@@ -12,6 +12,8 @@ import uploadDeptDues from "../views/Students/uploadDeptdues.vue";
 import clearanceform from "../views/Students/clearanceform.vue";
 import pendingdeptdues from "../views/Admin/pendingdeptdues.vue";
 import pendingschfees from "../views/Admin/pendingschfees.vue"
+import ideptdues from "../views/Admin/Idept.vue"
+import ischfees from "../views/Admin/Ischfees.vue"
 
 Vue.use(VueRouter);
 
@@ -114,6 +116,27 @@ const routes = [
     path: "/admin/pendingschfees",
     name: "pendingschfees",
     component: pendingschfees,
+    beforeEnter: (to, from, next) => {
+      const isAuthenticated = localStorage.getItem("Id") ? true : false;
+      if (to.name !== "Home" && !isAuthenticated) next({ name: "Home" });
+      else next();
+    },
+  },
+  {
+    path: "/admin/ischfees",
+    name: "ischfees",
+    component: ischfees,
+    beforeEnter: (to, from, next) => {
+      const isAuthenticated = localStorage.getItem("Id") ? true : false;
+      if (to.name !== "Home" && !isAuthenticated) next({ name: "Home" });
+      else next();
+    },
+  },
+
+  {
+    path: "/admin/ideptdues",
+    name: "ideptdues",
+    component: ideptdues,
     beforeEnter: (to, from, next) => {
       const isAuthenticated = localStorage.getItem("Id") ? true : false;
       if (to.name !== "Home" && !isAuthenticated) next({ name: "Home" });

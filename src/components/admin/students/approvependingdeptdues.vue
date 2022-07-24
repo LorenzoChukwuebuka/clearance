@@ -11,7 +11,7 @@
           <th scope="col">Fourth Year</th>
           <th scope="col">Fifth Year</th>
           <th scope="col">Status</th>
-		 <th scope="col">Approve</th>
+          <th scope="col">Approve</th>
         </tr>
       </thead>
 
@@ -22,13 +22,77 @@
       >
         <tr>
           <td>{{ index + 1 }}</td>
-          <td>{{ deptDue.first_yr }}</td>
-          <td>{{ deptDue.second_yr }}</td>
-          <td>{{ deptDue.third_yr }}</td>
-          <td>{{ deptDue.fourth_yr }}</td>
-          <td>{{ deptDue.fifth_yr }}</td>
-          <td>{{ deptDue.status }}</td>
-		  <td>
+          <td>
+            <router-link
+              :to="{
+                name: 'ideptdues',
+                query: {
+                  year: deptDue.first_yr,
+                },
+              }"
+              style="text-decoration: none; color: inherit"
+			    target="_blank"
+              >{{ deptDue.first_yr }}</router-link
+            >
+          </td>
+          <td>
+            <router-link
+              :to="{
+                name: 'ideptdues',
+                query: {
+                  year: deptDue.second_yr,
+                },
+              }"
+              style="text-decoration: none; color: inherit"
+			    target="_blank"
+              >{{ deptDue.second_yr }}</router-link
+            >
+          </td>
+          <td>
+            <router-link
+              :to="{
+                name: 'ideptdues',
+                query: {
+                  year: deptDue.third_yr,
+                },
+              }"
+              style="text-decoration: none; color: inherit"
+			    target="_blank"
+              >{{ deptDue.third_yr }}</router-link
+            >
+          </td>
+          <td>
+            <router-link
+              :to="{
+                name: 'ideptdues',
+                query: {
+                 year: deptDue.fourth_yr,
+                },
+              }"
+              style="text-decoration: none; color: inherit"
+			    target="_blank"
+              >{{ deptDue.fourth_yr }}</router-link
+            >
+          </td>
+          <td>
+            <router-link
+              :to="{
+                name: 'ideptdues',
+                query: {
+                  year: deptDue.fifth_yr,
+                },
+              }"
+			  target="_blank"
+              style="text-decoration: none; color: inherit"
+              >{{ deptDue.fifth_yr }}</router-link
+            >
+          </td>
+          <td>
+            <router-link to="" style="text-decoration: none; color: inherit">{{
+              deptDue.status
+            }}</router-link>
+          </td>
+          <td>
             <b-icon
               icon="pen"
               @click="approved(deptDue.id)"

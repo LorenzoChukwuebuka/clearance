@@ -1,6 +1,6 @@
 <template>
   <main>
-    <div class="input-group mb-3 w-50  mx-auto">
+    <div class="input-group mb-3 w-50 mx-auto">
       <button
         v-b-modal.modal-1
         class="btn btn-outline-secondary"
@@ -22,13 +22,13 @@
     <!-- add modal ---->
 
     <b-modal id="modal-1" hide-footer title="Add Department">
-      <div class=" bg-dark" v-if="error.length">
-        <span v-for="err in error">
+      <div class="bg-dark" v-if="error.length">
+        <span v-for="(err, index) in error" :key="index">
           <b-alert show variant="danger" dismissible> {{ err }} </b-alert>
         </span>
       </div>
 
-      <label class="mb-2 "> School </label>
+      <label class="mb-2"> School </label>
       <div class="input-group input-group-sm mb-3">
         <b-form-select
           class="px-2 py-2 pb-2 mt-1 mb-3 w-100"
@@ -39,15 +39,9 @@
               >-- select type --</b-form-select-option
             >
           </template>
-          <option class="px-2 py-2" value="1">
-            Admin 1
-          </option>
-          <option class="px-2 py-2" value="2">
-            Admin 2
-          </option>
-          <option class="px-2 py-2" value="3">
-            Admin 3
-          </option>
+          <option class="px-2 py-2" value="1">Admin 1</option>
+          <option class="px-2 py-2" value="2">Admin 2</option>
+          <option class="px-2 py-2" value="3">Admin 3</option>
         </b-form-select>
       </div>
       <div class="input-group input-group-sm mb-3">
@@ -80,26 +74,26 @@
 
 <script>
 export default {
-  name: 'addAdmin',
-  data () {
+  name: "addAdmin",
+  data() {
     return {
       error: [],
       form: {
-        type: '',
-        name: '',
-        password: ''
-      }
-    }
+        type: "",
+        name: "",
+        password: "",
+      },
+    };
   },
   methods: {
-    submit (e) {
-      e.preventDefault()
+    submit(e) {
+      e.preventDefault();
       if (!this.form.name && !this.form.type && !this.form.password) {
-        return this.error.push('Invalid input')
+        return this.error.push("Invalid input");
       } else {
-        this.$emit('form', this.form)
+        this.$emit("form", this.form);
       }
-    }
-  }
-}
+    },
+  },
+};
 </script>

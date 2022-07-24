@@ -21,12 +21,24 @@
       >
         <tr>
           <td>{{ index + 1 }}</td>
-          <td>{{ schfees.first_yr }}</td>
-          <td>{{ schfees.second_yr }}</td>
-          <td>{{ schfees.third_yr }}</td>
-          <td>{{ schfees.fourth_yr }}</td>
-          <td>{{ schfees.fifth_yr }}</td>
-          <td>{{ schfees.status }}</td>
+          <td>
+            <router-link to=""> {{ schfees.first_yr }} </router-link>
+          </td>
+          <td>
+            <router-link to=""> {{ schfees.second_yr }}</router-link>
+          </td>
+          <td>
+            <router-link to=""> {{ schfees.third_yr }} </router-link>
+          </td>
+          <td>
+            <router-link to=""> {{ schfees.fourth_yr }}</router-link>
+          </td>
+          <td>
+            <router-link to=""> {{ schfees.fifth_yr }}</router-link>
+          </td>
+          <td>
+            <router-link to=""> {{ schfees.status }}</router-link>
+          </td>
 
           <td>
             <b-icon
@@ -39,7 +51,7 @@
       </tbody>
     </table>
     <small v-else>
-      <p class="text-center text-dark"> There are no pending school fees </p>
+      <p class="text-center text-dark">There are no pending school fees</p>
     </small>
 
     <!-- add modal ---->
