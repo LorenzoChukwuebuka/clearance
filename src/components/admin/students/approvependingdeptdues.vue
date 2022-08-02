@@ -31,7 +31,7 @@
                 },
               }"
               style="text-decoration: none; color: inherit"
-			    target="_blank"
+              target="_blank"
               >{{ deptDue.first_yr }}</router-link
             >
           </td>
@@ -44,7 +44,7 @@
                 },
               }"
               style="text-decoration: none; color: inherit"
-			    target="_blank"
+              target="_blank"
               >{{ deptDue.second_yr }}</router-link
             >
           </td>
@@ -57,7 +57,7 @@
                 },
               }"
               style="text-decoration: none; color: inherit"
-			    target="_blank"
+              target="_blank"
               >{{ deptDue.third_yr }}</router-link
             >
           </td>
@@ -66,11 +66,11 @@
               :to="{
                 name: 'ideptdues',
                 query: {
-                 year: deptDue.fourth_yr,
+                  year: deptDue.fourth_yr,
                 },
               }"
               style="text-decoration: none; color: inherit"
-			    target="_blank"
+              target="_blank"
               >{{ deptDue.fourth_yr }}</router-link
             >
           </td>
@@ -82,7 +82,7 @@
                   year: deptDue.fifth_yr,
                 },
               }"
-			  target="_blank"
+              target="_blank"
               style="text-decoration: none; color: inherit"
               >{{ deptDue.fifth_yr }}</router-link
             >

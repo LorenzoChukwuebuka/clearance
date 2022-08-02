@@ -24,18 +24,18 @@ export default {
       this.$route.push("/admindashboard");
     }
     this.filename = this.$route.query.year;
-
-    console.log(this.filename);
+    this.fileUrl = `http://localhost:8000/static/deptDues/${this.filename}`;
   },
   mounted() {
-    this.getFile();
+    // this.getFile();
   },
   methods: {
     getFile() {
       this.$http
         .get(`http://localhost:8000/static/deptDues/${this.filename}`)
         .then((res) => {
-          this.fileUrl = res.data;
+          console.log(res);
+          // this.fileUrl = res.data;
         })
         .catch((err) => {
           console.log(err);
