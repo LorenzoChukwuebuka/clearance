@@ -24,6 +24,8 @@ export default {
       this.$route.push("/admindashboard");
     }
     this.filename = this.$route.query.year;
+
+    console.log(this.filename);
   },
   mounted() {
     this.getFile();
@@ -31,9 +33,12 @@ export default {
   methods: {
     getFile() {
       this.$http
-        .get(`http://localhost:8000/deptDues/${this.filename}`)
+        .get(`http://localhost:8000/static/deptDues/${this.filename}`)
         .then((res) => {
           this.fileUrl = res.data;
+        })
+        .catch((err) => {
+          console.log(err);
         });
     },
   },

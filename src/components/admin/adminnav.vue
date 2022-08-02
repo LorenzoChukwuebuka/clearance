@@ -65,14 +65,14 @@
             </router-link>
           </b-nav-item>
           <b-nav-item>
-            <a href="#" style="text-decoration: none" class="text-white">
+            <router-link to="libraryClearance" style="text-decoration: none" class="text-white">
               library
-            </a>
+            </router-link>
           </b-nav-item>
           <b-nav-item>
-            <a href="#" style="text-decoration: none" class="text-white">
+            <router-link to="medicalClearance" style="text-decoration: none" class="text-white">
               medical
-            </a>
+            </router-link>
           </b-nav-item>
           <b-nav-item>
             <a href="#" style="text-decoration: none" class="text-white">

@@ -7,8 +7,8 @@
 
       <div class="row justify-content-center mt-5">
         <approvedeptdues :pendingDeptDues="pendingDeptDues" @Id="approvedue" />
-		<br/>
-		<approveddeptdues :approveDeptDues="approveDeptDues"/>
+        <br />
+        <approveddeptdues :approveDeptDues="approveDeptDues" />
       </div>
     </div>
   </main>
@@ -22,7 +22,7 @@ export default {
   name: "pendingdeptdues",
   components: {
     approvedeptdues,
-	approveddeptdues,
+    approveddeptdues,
     adminnav,
   },
   data() {

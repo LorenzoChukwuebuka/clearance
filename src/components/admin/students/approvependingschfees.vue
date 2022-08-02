@@ -29,6 +29,8 @@
                   year: schfees.first_yr,
                 },
               }"
+              style="text-decoration: none; color: inherit"
+              target="_blank"
             >
               {{ schfees.first_yr }}
             </router-link>
@@ -41,6 +43,8 @@
                   year: schfees.second_yr,
                 },
               }"
+              style="text-decoration: none; color: inherit"
+              target="_blank"
             >
               {{ schfees.second_yr }}</router-link
             >
@@ -53,6 +57,8 @@
                   year: schfees.third_yr,
                 },
               }"
+              style="text-decoration: none; color: inherit"
+              target="_blank"
             >
               {{ schfees.third_yr }}
             </router-link>
@@ -65,6 +71,8 @@
                   year: schfees.fourth_yr,
                 },
               }"
+              style="text-decoration: none; color: inherit"
+              target="_blank"
             >
               {{ schfees.fourth_yr }}</router-link
             >
@@ -77,6 +85,8 @@
                   year: schfees.fifth_yr,
                 },
               }"
+              style="text-decoration: none; color: inherit"
+              target="_blank"
             >
               {{ schfees.fifth_yr }}</router-link
             >
