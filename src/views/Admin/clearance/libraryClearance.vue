@@ -72,11 +72,10 @@ export default {
           console.log(this.clearance);
         });
     },
-    approved: function (id) {
-		confirm('Do you want to approve this student?')
+    approved(id) {
+      confirm("Do you want to approve this student?");
 
-		 
-		console.log(id)
+      console.log(id);
       //   this.$http
       //     .post("http://localhost:8000/api/v1/approveClearance", {
       //       id: id,

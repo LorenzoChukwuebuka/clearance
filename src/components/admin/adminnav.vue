@@ -84,7 +84,7 @@
           </b-nav-item>
           <b-nav-item>
             <router-link
-              to="#"
+              to="studentAffairsClearance"
               style="text-decoration: none"
               class="text-white"
             >

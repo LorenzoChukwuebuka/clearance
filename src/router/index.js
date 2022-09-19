@@ -18,7 +18,7 @@ import libraryClearance from "../views/Admin/clearance/libraryClearance.vue"
 import DeanClearance from "../views/Admin/clearance/DeanClearance.vue"
 import medicalClearance from "../views/Admin/clearance/medicalClearance.vue"
 import RegistryClearance from "../views/Admin/clearance/RegistryClearance.vue"
-import studentAffairsClearnce from "../views/Admin/clearance/studentAffairsClearance.vue"
+import studentAffairsClearance from "../views/Admin/clearance/studentAffairsClearance.vue"
 
 Vue.use(VueRouter)
 
@@ -174,6 +174,17 @@ const routes = [
     path: '/admin/medicalClearance',
     name: 'medicalClearance',
     component: medicalClearance,
+    beforeEnter: (to, from, next) => {
+      const isAuthenticated = localStorage.getItem('Id') ? true : false
+      if (to.name !== 'Home' && !isAuthenticated) next({ name: 'Home' })
+      else next()
+    },
+  },
+
+  {
+    path: '/admin/studentAffairsClearance',
+    name: 'studentAffairsClearance',
+    component: studentAffairsClearance,
     beforeEnter: (to, from, next) => {
       const isAuthenticated = localStorage.getItem('Id') ? true : false
       if (to.name !== 'Home' && !isAuthenticated) next({ name: 'Home' })
