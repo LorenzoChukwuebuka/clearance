@@ -99,7 +99,11 @@
           </b-nav-item>
 
           <b-nav-item>
-            <router-link to="" style="text-decoration: none" class="text-white">
+            <router-link
+              to="RegistryClearance"
+              style="text-decoration: none"
+              class="text-white"
+            >
               School Registry
             </router-link>
           </b-nav-item>

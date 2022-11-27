@@ -10,7 +10,7 @@
           :pendingSchfees="pendingSchfees"
           @Id="approveschfees"
         />
-        <br/>
+        <br />
         <approvedschfees :approvedSchFees="approvedSchFees" />
       </div>
     </div>
@@ -63,8 +63,8 @@ export default {
           return;
         }
       } catch (error) {
-		  console.log(error)
-	  }
+        console.log(error);
+      }
     },
     async getApprovedSchFees() {
       try {

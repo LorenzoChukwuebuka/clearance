@@ -1,8 +1,8 @@
 <template>
-  <div class="grey-bg  container-fluid">
+  <div class="grey-bg container-fluid">
     <section id="minimal-statistics">
       <div class="row">
-        <div class="col-12 mt-3 mb-1 "></div>
+        <div class="col-12 mt-3 mb-1"></div>
       </div>
       <div class="row">
         <div class="col-xl-3 col-sm-6 col-12">
@@ -14,7 +14,7 @@
                     <i class="icon-pencil primary font-large-2 float-left"></i>
                   </div>
                   <div class="media-body text-right">
-                    <h3>{{admins}}</h3>
+                    <h3>{{ admins }}</h3>
                     <span>Admins</span>
                   </div>
                 </div>
@@ -31,7 +31,7 @@
                     <i class="icon-speech warning font-large-2 float-left"></i>
                   </div>
                   <div class="media-body text-right">
-                    <h3>{{students}}</h3>
+                    <h3>{{ students }}</h3>
                     <span>Students</span>
                   </div>
                 </div>
@@ -48,7 +48,7 @@
                     <i class="icon-graph success font-large-2 float-left"></i>
                   </div>
                   <div class="media-body text-right">
-                    <h3>{{depts}}</h3>
+                    <h3>{{ depts }}</h3>
                     <span>Departments</span>
                   </div>
                 </div>
@@ -65,7 +65,7 @@
                     <i class="icon-pointer danger font-large-2 float-left"></i>
                   </div>
                   <div class="media-body text-right">
-                    <h3>{{pendingschfees}}</h3>
+                    <h3>{{ pendingschfees }}</h3>
                     <span> Pending unapproved School fees </span>
                   </div>
                 </div>
@@ -82,7 +82,7 @@
               <div class="card-body">
                 <div class="media d-flex">
                   <div class="media-body text-left">
-                    <h3 class="danger">{{pendingdeptdues}}</h3>
+                    <h3 class="danger">{{ pendingdeptdues }}</h3>
                     <span> Pending unapproved departmental dues </span>
                   </div>
                   <div class="align-self-center">
@@ -167,7 +167,7 @@
                     ></i>
                   </div>
                 </div>
-                <div class="progress mt-1 mb-0" style="height: 7px;">
+                <div class="progress mt-1 mb-0" style="height: 7px">
                   <div
                     class="progress-bar bg-primary"
                     role="progressbar"
@@ -196,7 +196,7 @@
                     ></i>
                   </div>
                 </div>
-                <div class="progress mt-1 mb-0" style="height: 7px;">
+                <div class="progress mt-1 mb-0" style="height: 7px">
                   <div
                     class="progress-bar bg-warning"
                     role="progressbar"
@@ -224,7 +224,7 @@
                     <i class="icon-cup success font-large-2 float-right"></i>
                   </div>
                 </div>
-                <div class="progress mt-1 mb-0" style="height: 7px;">
+                <div class="progress mt-1 mb-0" style="height: 7px">
                   <div
                     class="progress-bar bg-success"
                     role="progressbar"
@@ -253,7 +253,7 @@
                     ></i>
                   </div>
                 </div>
-                <div class="progress mt-1 mb-0" style="height: 7px;">
+                <div class="progress mt-1 mb-0" style="height: 7px">
                   <div
                     class="progress-bar bg-danger"
                     role="progressbar"
@@ -274,9 +274,9 @@
 
 <script>
 export default {
-  name: 'admindashComponent',
-  props: ['students', 'admins', 'depts','pendingschfees','pendingdeptdues']
-}
+  name: "admindashComponent",
+  props: ["students", "admins", "depts", "pendingschfees", "pendingdeptdues"],
+};
 </script>
 
 <style></style>

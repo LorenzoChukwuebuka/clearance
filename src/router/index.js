@@ -14,11 +14,12 @@ import pendingdeptdues from '../views/Admin/pendingdeptdues.vue'
 import pendingschfees from '../views/Admin/pendingschfees.vue'
 import ideptdues from '../views/Admin/Idept.vue'
 import ischfees from '../views/Admin/Ischfees.vue'
-import libraryClearance from "../views/Admin/clearance/libraryClearance.vue"
-import DeanClearance from "../views/Admin/clearance/DeanClearance.vue"
-import medicalClearance from "../views/Admin/clearance/medicalClearance.vue"
-import RegistryClearance from "../views/Admin/clearance/RegistryClearance.vue"
-import studentAffairsClearance from "../views/Admin/clearance/studentAffairsClearance.vue"
+import libraryClearance from '../views/Admin/clearance/libraryClearance.vue'
+import DeanClearance from '../views/Admin/clearance/DeanClearance.vue'
+import medicalClearance from '../views/Admin/clearance/medicalClearance.vue'
+import RegistryClearance from '../views/Admin/clearance/RegistryClearance.vue'
+import studentAffairsClearance from '../views/Admin/clearance/studentAffairsClearance.vue'
+import uploadLibrary from '../views/Students/uploadLibrary.vue'
 
 Vue.use(VueRouter)
 
@@ -138,8 +139,7 @@ const routes = [
     },
   },
 
- 
-    {
+  {
     path: '/admin/ideptdues',
     name: 'ideptdues',
     component: ideptdues,
@@ -185,6 +185,28 @@ const routes = [
     path: '/admin/studentAffairsClearance',
     name: 'studentAffairsClearance',
     component: studentAffairsClearance,
+    beforeEnter: (to, from, next) => {
+      const isAuthenticated = localStorage.getItem('Id') ? true : false
+      if (to.name !== 'Home' && !isAuthenticated) next({ name: 'Home' })
+      else next()
+    },
+  },
+
+  {
+    path: '/admin/RegistryClearance',
+    name: 'RegistryClearance',
+    component: RegistryClearance,
+    beforeEnter: (to, from, next) => {
+      const isAuthenticated = localStorage.getItem('Id') ? true : false
+      if (to.name !== 'Home' && !isAuthenticated) next({ name: 'Home' })
+      else next()
+    },
+  },
+
+  {
+    path: '/libraryupload',
+    name: 'libraryupload',
+    component: uploadLibrary,
     beforeEnter: (to, from, next) => {
       const isAuthenticated = localStorage.getItem('Id') ? true : false
       if (to.name !== 'Home' && !isAuthenticated) next({ name: 'Home' })

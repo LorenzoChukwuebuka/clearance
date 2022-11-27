@@ -1,6 +1,6 @@
 <template>
   <main>
-    <div class="input-group mb-3 w-50  mx-auto">
+    <div class="input-group mb-3 w-50 mx-auto">
       <button
         v-b-modal.modal-1
         class="btn btn-outline-secondary"
@@ -23,13 +23,13 @@
 
     <b-modal id="modal-1" hide-footer title="Upload file">
       <form enctype="multipart/form-data">
-        <div class=" bg-dark" v-if="error.length">
+        <div class="bg-dark" v-if="error.length">
           <span v-for="(err, index) in error" :key="index">
             <b-alert show variant="danger" dismissible> {{ err }} </b-alert>
           </span>
         </div>
 
-        <div class=" bg-dark" v-if-else="success.length">
+        <div class="bg-dark" v-if-else="success.length">
           <span v-for="(suc, index) in success" :key="index">
             <b-alert show variant="danger" dismissible> {{ suc }} </b-alert>
           </span>
@@ -39,9 +39,7 @@
           <label class="mb-2 mt-1">
             Upload Departmental dues
             <br />
-            <small>
-              Please choose 5 files at once
-            </small></label
+            <small> Please choose 5 files at once </small></label
           >
 
           <input
@@ -64,53 +62,53 @@
 
 <script>
 export default {
-  name: 'addDeptdues',
-  data () {
+  name: "addDeptdues",
+  data() {
     return {
       form: {},
       error: [],
       images: [],
       success: [],
-      id: localStorage.getItem('Id')
-    }
+      id: localStorage.getItem("Id"),
+    };
   },
 
   methods: {
-    handleFile () {
+    handleFile() {
       for (let i = 0; i < this.$refs.file.files.length; i++) {
-        this.images.push(this.$refs.file.files[i])
+        this.images.push(this.$refs.file.files[i]);
       }
     },
-    submit (e) {
-      e.preventDefault()
-      let formData = new FormData()
+    submit(e) {
+      e.preventDefault();
+      let formData = new FormData();
 
-      var self = this
+      var self = this;
 
       if (self.images.length < 5 || self.images.length > 5) {
-        return self.error.push('Select 5 files only')
+        return self.error.push("Select 5 files only");
       }
 
       for (let i = 0; i < self.images.length; i++) {
-        let file = self.images[i]
+        let file = self.images[i];
 
-        formData.append('myfile', file)
+        formData.append("myfile", file);
       }
-      formData.append('studentId', self.id)
+      formData.append("studentId", self.id);
 
       self.$http
-        .post('http://localhost:8000/api/v1/deptDues', formData)
-        .then(res => {
-          if (res.data.message === 'inserted successfully') {
-            self.success.push(res.data.message)
+        .post("http://localhost:8000/api/v1/deptDues", formData)
+        .then((res) => {
+          if (res.data.message === "inserted successfully") {
+            self.success.push(res.data.message);
           }
         })
-        .catch(err => {
-          console.log(err)
-        })
-    }
-  }
-}
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+  },
+};
 </script>
 
 <style></style>

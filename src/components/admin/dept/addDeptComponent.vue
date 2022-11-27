@@ -23,7 +23,7 @@
 
     <b-modal id="modal-1" hide-footer title="Add Department">
       <div class="bg-dark" v-if="error.length">
-        <span v-for="(err,index) in error" :key="index">
+        <span v-for="(err, index) in error" :key="index">
           <b-alert show variant="danger" dismissible> {{ err }} </b-alert>
         </span>
       </div>

@@ -75,16 +75,20 @@ export default {
     approved: function (id) {
       confirm("Do you want to approve this student?");
 
-      console.log(id);
-      //   this.$http
-      //     .post("http://localhost:8000/api/v1/approveClearance", {
-      //       id: id,
-      //     })
-      //     .then((response) => {
-      //       if (response.data.message == "Clearance Approved") {
-      //         this.getClearance();
-      //       }
-      //     });
+      let data = {};
+      data.user_id = id;
+      data.admin_id = this.$id;
+      data.status = "active";
+
+      this.$http
+        .post(`http://localhost:8000/api/v1/approve_medical_clearance`, data)
+        .then((res) => {
+          if ((res.data.message = "student already cleared"))
+            alert(res.data.message);
+          if (res.data.message == "medical Clearance") {
+            alert("Students cleared successfully");
+          }
+        });
     },
   },
 };

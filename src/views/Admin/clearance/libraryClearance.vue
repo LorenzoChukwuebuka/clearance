@@ -40,7 +40,9 @@
         </table>
       </div>
 
-      <div class="row justify-content-center mt-5"></div>
+      <div class="row justify-content-center mt-5">
+        <h4 class="text-dark text-center">Cleared Students</h4>
+      </div>
     </div>
   </main>
 </template>
@@ -54,11 +56,13 @@ export default {
   },
   mounted() {
     this.getClearance();
+    this.get_approved_students();
   },
   data() {
     return {
       clearance: [],
       loading: true,
+      approved_students: [],
     };
   },
   methods: {
@@ -68,23 +72,39 @@ export default {
         .then((response) => {
           if (response.data.message == "All Students")
             this.clearance = response.data.data;
-
-          console.log(this.clearance);
         });
     },
     approved(id) {
       confirm("Do you want to approve this student?");
 
-      console.log(id);
-      //   this.$http
-      //     .post("http://localhost:8000/api/v1/approveClearance", {
-      //       id: id,
-      //     })
-      //     .then((response) => {
-      //       if (response.data.message == "Clearance Approved") {
-      //         this.getClearance();
-      //       }
-      //     });
+      let data = {};
+      data.user_id = id;
+      data.admin_id = this.$id;
+      data.status = "active";
+
+      this.$http
+        .post("http://localhost:8000/api/v1/approve_library_clearance", data)
+        .then((response) => {
+          if (response.data.message == "student already cleared")
+            alert(response.data.message);
+          if (response.data.message == "Clearance Approved") {
+            this.getClearance();
+          }
+        });
+    },
+
+    async get_approved_students() {
+      try {
+        let res = await this.$http.get(
+          "http://localhost:8000/api/v1/get_approved_library_clearance"
+        );
+
+        if (res.data.message == "cleared students") {
+          this.approved_students = res.data.data;
+        }
+      } catch (error) {
+        console.log(error);
+      }
     },
   },
 };
