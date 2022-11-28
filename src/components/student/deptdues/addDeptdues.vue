@@ -37,7 +37,7 @@
 
         <div class="input-group input-group-sm mb-3">
           <label class="mb-2 mt-1">
-            Upload Departmental dues
+            Upload School Fees
             <br />
             <small> Please choose 5 files at once </small></label
           >
@@ -99,8 +99,14 @@ export default {
       self.$http
         .post("http://localhost:8000/api/v1/deptDues", formData)
         .then((res) => {
+          console.log(res.data);
+
           if (res.data.message === "inserted successfully") {
             self.success.push(res.data.message);
+          }
+
+          if (res.data.message === "Already submitted") {
+            alert("Already submitted");
           }
         })
         .catch((err) => {

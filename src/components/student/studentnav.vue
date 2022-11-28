@@ -43,7 +43,7 @@
             </router-link>
           </b-nav-item>
           <b-nav-item>
-            <router-link style="text-decoration: none" class="text-white" to="">
+            <router-link style="text-decoration: none" class="text-white" to="/medicalupload">
               Medical
             </router-link>
           </b-nav-item>

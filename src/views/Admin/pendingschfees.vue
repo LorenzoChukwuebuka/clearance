@@ -44,7 +44,7 @@ export default {
         const res = await this.$http.get(
           "http://localhost:8000/api/v1/getpendingSchfees"
         );
-
+        console.log(res.data);
         this.pendingSchfees = res.data;
       } catch (error) {
         console.log(error);

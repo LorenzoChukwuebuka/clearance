@@ -1,7 +1,7 @@
 <template>
   <main>
     <h4 class="text-dark text-center">School Fees</h4>
-    <table class="table mt-5 text-dark" v-if="schFees.length != 0">
+    <table class="table-responsive table mt-5 text-dark" v-if="schFees.length != 0">
       <thead>
         <tr>
           <th scope="col">#</th>
@@ -16,7 +16,7 @@
 
       <tbody v-for="(schFee, index) in schFees" :key="index" :value="schFee.id">
         <tr>
-          <td>{{ index + 1 }}</td>
+          <td class="text-truncate">{{ index + 1 }}</td>
           <td>{{ schFee.first_yr }}</td>
           <td>{{ schFee.second_yr }}</td>
           <td>{{ schFee.third_yr }}</td>

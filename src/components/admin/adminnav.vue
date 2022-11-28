@@ -64,33 +64,7 @@
               Departmental Dues
             </router-link>
           </b-nav-item>
-          <b-nav-item>
-            <router-link
-              to="libraryClearance"
-              style="text-decoration: none"
-              class="text-white"
-            >
-              library
-            </router-link>
-          </b-nav-item>
-          <b-nav-item>
-            <router-link
-              to="medicalClearance"
-              style="text-decoration: none"
-              class="text-white"
-            >
-              medical
-            </router-link>
-          </b-nav-item>
-          <b-nav-item>
-            <router-link
-              to="studentAffairsClearance"
-              style="text-decoration: none"
-              class="text-white"
-            >
-              student affairs
-            </router-link>
-          </b-nav-item>
+          
 
           <b-nav-item>
             <router-link to="" style="text-decoration: none" class="text-white">

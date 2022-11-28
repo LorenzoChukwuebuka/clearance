@@ -1,10 +1,15 @@
 <template>
   <main>
     <h4 class="text-dark text-center"></h4>
-    <table class="table mt-5 text-dark" v-if="pendingSchfees.length != 0">
+    <table
+      class="table table-responsive mt-5 text-dark"
+      v-if="pendingSchfees.length != 0"
+    >
       <thead>
         <tr>
           <th scope="col">#</th>
+		  <th scope="col"> Submitted by </th>
+		  <th scope="col"> Registration number </th>
           <th scope="col">First Year</th>
           <th scope="col">Second Year</th>
           <th scope="col">Third Year</th>
@@ -21,10 +26,12 @@
       >
         <tr>
           <td>{{ index + 1 }}</td>
+		  <td>{{schfees.name}}</td>
+		  <td>{{schfees.reg_number}}</td>
           <td>
             <router-link
               :to="{
-                name: 'ischfees',
+                name: 'ideptdues',
                 query: {
                   year: schfees.first_yr,
                 },
@@ -38,7 +45,7 @@
           <td>
             <router-link
               :to="{
-                name: 'ischfees',
+                name: 'ideptdues',
                 query: {
                   year: schfees.second_yr,
                 },
@@ -52,7 +59,7 @@
           <td>
             <router-link
               :to="{
-                name: 'ischfees',
+                name: 'ideptdues',
                 query: {
                   year: schfees.third_yr,
                 },
@@ -66,7 +73,7 @@
           <td>
             <router-link
               :to="{
-                name: 'ischfees',
+                name: 'ideptdues',
                 query: {
                   year: schfees.fourth_yr,
                 },
@@ -80,7 +87,7 @@
           <td>
             <router-link
               :to="{
-                name: 'ischfees',
+                name: 'ideptdues',
                 query: {
                   year: schfees.fifth_yr,
                 },
@@ -90,9 +97,6 @@
             >
               {{ schfees.fifth_yr }}</router-link
             >
-          </td>
-          <td>
-            <router-link to=""> {{ schfees.status }}</router-link>
           </td>
 
           <td>

@@ -3,7 +3,7 @@
     <h4 class="text-dark text-center">Approved School fees</h4>
     <table
       class="table table-responsive mt-5 text-dark"
-      v-if="approvedSchFees.length != 0"
+      v-if="approvedLibraryfees.length != 0"
     >
       <thead>
         <tr>
@@ -20,20 +20,20 @@
       </thead>
 
       <tbody
-        v-for="(schfees, index) in approvedSchFees"
+        v-for="(library, index) in approvedLibraryfees"
         :key="index"
-        :value="schfees.id"
+        :value="library.id"
       >
         <tr>
           <td>{{ index + 1 }}</td>
-          <td>{{ schfees.name }}</td>
-          <td>{{ schfees.reg_number }}</td>
-          <td>{{ schfees.first_yr }}</td>
-          <td>{{ schfees.second_yr }}</td>
-          <td>{{ schfees.third_yr }}</td>
-          <td>{{ schfees.fourth_yr }}</td>
-          <td>{{ schfees.fifth_yr }}</td>
-          <td>{{ schfees.status }}</td>
+          <td>{{ library.name }}</td>
+          <td>{{ library.reg_number }}</td>
+          <td>{{ library.first_yr }}</td>
+          <td>{{ library.second_yr }}</td>
+          <td>{{ library.third_yr }}</td>
+          <td>{{ library.fourth_yr }}</td>
+          <td>{{ library.fifth_yr }}</td>
+          <td>{{ library.status }}</td>
         </tr>
       </tbody>
     </table>
@@ -49,7 +49,7 @@
 </template>
 <script>
 export default {
-  name: "approvedschfees",
-  props: ["approvedSchFees"],
+  name: "approvedlibraryfees",
+  props: ["approvedLibraryfees"],
 };
 </script>

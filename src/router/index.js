@@ -14,12 +14,10 @@ import pendingdeptdues from '../views/Admin/pendingdeptdues.vue'
 import pendingschfees from '../views/Admin/pendingschfees.vue'
 import ideptdues from '../views/Admin/Idept.vue'
 import ischfees from '../views/Admin/Ischfees.vue'
-import libraryClearance from '../views/Admin/clearance/libraryClearance.vue'
-import DeanClearance from '../views/Admin/clearance/DeanClearance.vue'
-import medicalClearance from '../views/Admin/clearance/medicalClearance.vue'
-import RegistryClearance from '../views/Admin/clearance/RegistryClearance.vue'
-import studentAffairsClearance from '../views/Admin/clearance/studentAffairsClearance.vue'
+import pendingLibrary from "../views/Admin/pendinglibraryfees.vue"
+
 import uploadLibrary from '../views/Students/uploadLibrary.vue'
+import uploadMedical from '../views/Students/uploadMedical.vue'
 
 Vue.use(VueRouter)
 
@@ -149,53 +147,11 @@ const routes = [
       else next()
     },
   },
-  {
-    path: '/admin/DeanClearance',
-    name: 'DeanClearance',
-    component: DeanClearance,
-    beforeEnter: (to, from, next) => {
-      const isAuthenticated = localStorage.getItem('Id') ? true : false
-      if (to.name !== 'Home' && !isAuthenticated) next({ name: 'Home' })
-      else next()
-    },
-  },
-  {
-    path: '/admin/libraryClearance',
-    name: 'libraryClearance',
-    component: libraryClearance,
-    beforeEnter: (to, from, next) => {
-      const isAuthenticated = localStorage.getItem('Id') ? true : false
-      if (to.name !== 'Home' && !isAuthenticated) next({ name: 'Home' })
-      else next()
-    },
-  },
 
   {
-    path: '/admin/medicalClearance',
-    name: 'medicalClearance',
-    component: medicalClearance,
-    beforeEnter: (to, from, next) => {
-      const isAuthenticated = localStorage.getItem('Id') ? true : false
-      if (to.name !== 'Home' && !isAuthenticated) next({ name: 'Home' })
-      else next()
-    },
-  },
-
-  {
-    path: '/admin/studentAffairsClearance',
-    name: 'studentAffairsClearance',
-    component: studentAffairsClearance,
-    beforeEnter: (to, from, next) => {
-      const isAuthenticated = localStorage.getItem('Id') ? true : false
-      if (to.name !== 'Home' && !isAuthenticated) next({ name: 'Home' })
-      else next()
-    },
-  },
-
-  {
-    path: '/admin/RegistryClearance',
-    name: 'RegistryClearance',
-    component: RegistryClearance,
+    path: '/admin/pendinglibrary',
+    name: 'pendinglibrary',
+    component: pendingLibrary,
     beforeEnter: (to, from, next) => {
       const isAuthenticated = localStorage.getItem('Id') ? true : false
       if (to.name !== 'Home' && !isAuthenticated) next({ name: 'Home' })
@@ -207,6 +163,16 @@ const routes = [
     path: '/libraryupload',
     name: 'libraryupload',
     component: uploadLibrary,
+    beforeEnter: (to, from, next) => {
+      const isAuthenticated = localStorage.getItem('Id') ? true : false
+      if (to.name !== 'Home' && !isAuthenticated) next({ name: 'Home' })
+      else next()
+    },
+  },
+  {
+    path: '/medicalupload',
+    name: 'medicalupload',
+    component: uploadMedical,
     beforeEnter: (to, from, next) => {
       const isAuthenticated = localStorage.getItem('Id') ? true : false
       if (to.name !== 'Home' && !isAuthenticated) next({ name: 'Home' })

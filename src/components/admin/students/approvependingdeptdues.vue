@@ -1,10 +1,15 @@
 <template>
   <main>
     <!-- <h4 class="text-dark text-center">  </h4> -->
-    <table class="table mt-5 text-dark" v-if="pendingDeptDues.length != 0">
+    <table
+      class="table table-responsive mt-5 text-dark"
+      v-if="pendingDeptDues.length != 0"
+    >
       <thead>
         <tr>
           <th scope="col">#</th>
+          <th scope="col">Submitted by</th>
+          <th scopoe="col">Registration Number</th>
           <th scope="col">First Year</th>
           <th scope="col">Second Year</th>
           <th scope="col">Third Year</th>
@@ -22,6 +27,8 @@
       >
         <tr>
           <td>{{ index + 1 }}</td>
+          <td>{{ deptDue.name }}</td>
+          <td>{{ deptDue.reg_number }}</td>
           <td>
             <router-link
               :to="{

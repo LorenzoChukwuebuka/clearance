@@ -5,7 +5,7 @@
       <h4 class="text-dark text-center">Upload Departmental Due Receipts</h4>
       <addDeptdues />
       <div class="row justify-content-center mt-5">
-        <div class="container col-8">
+        <div class="container col-12">
           <div class="bg-dark" v-if="success.length">
             <span v-for="(suc, index) in success" :key="index">
               <b-alert show variant="danger" dismissible>

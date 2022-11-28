@@ -1,7 +1,7 @@
 <template>
   <main>
     <h4 class="text-dark text-center"> Departmental Dues </h4>
-    <table class="table mt-5 text-dark" v-if="deptDues.length != 0">
+    <table class="table table-responsive mt-5 text-dark" v-if="deptDues.length != 0">
       <thead>
         <tr>
           <th scope="col">#</th>
