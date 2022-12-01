@@ -64,13 +64,29 @@
               Departmental Dues
             </router-link>
           </b-nav-item>
-          
 
           <b-nav-item>
-            <router-link to="" style="text-decoration: none" class="text-white">
-              Dean of School
+            <router-link
+              to="/admin/pendinglibrary"
+              style="text-decoration: none"
+              class="text-white"
+            >
+              library
             </router-link>
           </b-nav-item>
+
+          <b-nav-item>
+            <router-link
+              to="/admin/pendingmedical"
+              style="text-decoration: none"
+              class="text-white"
+            >
+              medical
+            </router-link>
+          </b-nav-item>
+
+
+          
 
           <b-nav-item>
             <router-link
@@ -78,7 +94,7 @@
               style="text-decoration: none"
               class="text-white"
             >
-              School Registry
+              Student Affairs
             </router-link>
           </b-nav-item>
 

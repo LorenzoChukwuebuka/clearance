@@ -5,7 +5,7 @@
       <h4 class="text-dark text-center">Upload Medical Receipts</h4>
       <addmedical />
       <div class="row justify-content-center mt-5">
-        <div class="container col-12">
+        <div class="container col-10">
           <div class="bg-dark" v-if="success.length">
             <span v-for="(suc, index) in success" :key="index">
               <b-alert show variant="danger" dismissible>

@@ -1,6 +1,6 @@
 <template>
   <main>
-    <h4 class="text-dark text-center">Approved School fees</h4>
+    <h4 class="text-dark text-center">Approved library Clearance </h4>
     <table
       class="table table-responsive mt-5 text-dark"
       v-if="approvedLibraryfees.length != 0"

@@ -6,7 +6,7 @@
       <h4 class="text-dark text-center">Pending library clearance</h4>
 
       <div class="row justify-content-center mt-5">
-        <approvelibraryfees :pendinglibrary="pendinglibrary" @Id="approvedue" />
+        <approvelibraryfees :pendinglibrary="pendinglibrary"  @Id="approvedue" />
         <br />
         <approvedlibraryfees :approvedLibraryfees="approvedlibrary" />
       </div>

@@ -14,7 +14,8 @@ import pendingdeptdues from '../views/Admin/pendingdeptdues.vue'
 import pendingschfees from '../views/Admin/pendingschfees.vue'
 import ideptdues from '../views/Admin/Idept.vue'
 import ischfees from '../views/Admin/Ischfees.vue'
-import pendingLibrary from "../views/Admin/pendinglibraryfees.vue"
+import pendingLibrary from '../views/Admin/pendinglibraryfees.vue'
+import pendingMedical from "../views/Admin/pendingmedicalfees.vue"
 
 import uploadLibrary from '../views/Students/uploadLibrary.vue'
 import uploadMedical from '../views/Students/uploadMedical.vue'
@@ -120,6 +121,17 @@ const routes = [
     path: '/admin/pendingschfees',
     name: 'pendingschfees',
     component: pendingschfees,
+    beforeEnter: (to, from, next) => {
+      const isAuthenticated = localStorage.getItem('Id') ? true : false
+      if (to.name !== 'Home' && !isAuthenticated) next({ name: 'Home' })
+      else next()
+    },
+  },
+
+  {
+    path: '/admin/pendingmedical',
+    name: 'pendingmedical',
+    component: pendingMedical,
     beforeEnter: (to, from, next) => {
       const isAuthenticated = localStorage.getItem('Id') ? true : false
       if (to.name !== 'Home' && !isAuthenticated) next({ name: 'Home' })
