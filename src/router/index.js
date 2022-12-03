@@ -16,6 +16,7 @@ import ideptdues from '../views/Admin/Idept.vue'
 import ischfees from '../views/Admin/Ischfees.vue'
 import pendingLibrary from '../views/Admin/pendinglibraryfees.vue'
 import pendingMedical from "../views/Admin/pendingmedicalfees.vue"
+import deanclearance from "../views/Admin/deanclearance.vue"
 
 import uploadLibrary from '../views/Students/uploadLibrary.vue'
 import uploadMedical from '../views/Students/uploadMedical.vue'
@@ -118,6 +119,18 @@ const routes = [
   },
 
   {
+    path: '/admin/deanclearance',
+    name: 'deanclearance',
+    component: deanclearance,
+    beforeEnter: (to, from, next) => {
+      const isAuthenticated = localStorage.getItem('Id') ? true : false
+      if (to.name !== 'Home' && !isAuthenticated) next({ name: 'Home' })
+      else next()
+    },
+  },
+
+
+  {
     path: '/admin/pendingschfees',
     name: 'pendingschfees',
     component: pendingschfees,
@@ -159,6 +172,8 @@ const routes = [
       else next()
     },
   },
+
+
 
   {
     path: '/admin/pendinglibrary',

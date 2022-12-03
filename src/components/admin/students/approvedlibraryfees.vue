@@ -38,7 +38,7 @@
       </tbody>
     </table>
     <small v-else>
-      <p class="text-center text-dark">There are no approved school fees</p>
+      <p class="text-center text-dark">There are no approved library clearance</p>
     </small>
 
     <!-- add modal ---->

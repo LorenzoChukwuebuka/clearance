@@ -85,16 +85,13 @@
             </router-link>
           </b-nav-item>
 
-
-          
-
           <b-nav-item>
             <router-link
-              to="RegistryClearance"
+              to="/admin/deanclearance"
               style="text-decoration: none"
               class="text-white"
             >
-              Student Affairs
+              Dean Clearance
             </router-link>
           </b-nav-item>
 

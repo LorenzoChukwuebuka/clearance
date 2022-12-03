@@ -2,7 +2,7 @@
     <main>
       <h4 class="text-dark text-center">Approved Medical Clearance</h4>
       <table
-        class="table mx-auto table-responsive mt-5 text-dark"
+        class="table  table-responsive mt-5 text-dark"
         v-if="approvedMedical.length != 0"
       >
         <thead>

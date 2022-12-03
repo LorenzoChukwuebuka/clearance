@@ -6,9 +6,11 @@
       <h4 class="text-dark text-center">Pending Medical Clearance</h4>
 
       <div class="row justify-content-center mt-5">
-        <approvependingmedicalclearance :medical="medical" @Id="approvedue" />
-        <br />
+        <div class="container offset-1 col 8">
+          <approvependingmedicalclearance :medical="medical" @Id="approvedue" />
+          <br />
           <approvedmedicalclearance :approvedMedical="approvedMedical" />
+        </div>
       </div>
     </div>
   </main>
@@ -23,17 +25,17 @@ export default {
   components: {
     adminnav,
     approvependingmedicalclearance,
-	approvedmedicalclearance
+    approvedmedicalclearance,
   },
   data() {
     return {
       medical: [],
-	  approvedMedical:[]
+      approvedMedical: [],
     };
   },
   mounted() {
     this.getpendingmedicalfees();
-	this.getapprovedMedicalClearacnce()
+    this.getapprovedMedicalClearacnce();
   },
   methods: {
     async getpendingmedicalfees() {
@@ -65,7 +67,7 @@ export default {
         let response = await this.$http.get(
           "http://localhost:8000/api/v1/getapprovedmedicaldues"
         );
-        this.approvedMedical = response.data
+        this.approvedMedical = response.data;
       } catch (error) {
         console.log(error);
       }
