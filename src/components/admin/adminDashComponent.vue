@@ -100,7 +100,7 @@
                 <div class="media d-flex">
                   <div class="media-body text-left">
                     <h3 class="success">156</h3>
-                    <span>New Clients</span>
+                    <span>Approved Dept dues</span>
                   </div>
                   <div class="align-self-center">
                     <i class="icon-user success font-large-2 float-right"></i>
@@ -117,8 +117,8 @@
               <div class="card-body">
                 <div class="media d-flex">
                   <div class="media-body text-left">
-                    <h3 class="warning">64.89 %</h3>
-                    <span>Conversion Rate</span>
+                    <h3 class="warning">{{pendinglibrary}}</h3>
+                    <span>Pending library clearance</span>
                   </div>
                   <div class="align-self-center">
                     <i
@@ -136,8 +136,8 @@
               <div class="card-body">
                 <div class="media d-flex">
                   <div class="media-body text-left">
-                    <h3 class="primary">423</h3>
-                    <span>Support Tickets</span>
+                    <h3 class="primary">{{approvedlibrary}}</h3>
+                    <span>Approved library clearance</span>
                   </div>
                   <div class="align-self-center">
                     <i
@@ -187,8 +187,8 @@
               <div class="card-body">
                 <div class="media d-flex">
                   <div class="media-body text-left">
-                    <h3 class="warning">156</h3>
-                    <span>New Comments</span>
+                    <h3 class="warning">{{approvedschfees}}</h3>
+                    <span>Approved school fees</span>
                   </div>
                   <div class="align-self-center">
                     <i
@@ -275,7 +275,7 @@
 <script>
 export default {
   name: "admindashComponent",
-  props: ["students", "admins", "depts", "pendingschfees", "pendingdeptdues"],
+  props: ["students", "admins", "depts", "pendingschfees", "pendingdeptdues","approvedschfees","pendinglibrary","approvedlibrary"],
 };
 </script>
 

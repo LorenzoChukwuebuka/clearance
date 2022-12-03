@@ -7,6 +7,10 @@
       :depts="depts"
       :pendingschfees="pendingschfees"
       :pendingdeptdues="pendingdeptdues"
+      :approveddeptdues="approveddeptdues"
+      :pendinglibrary="pendinglibrary"
+      :approvedlibrary="approvedlibrary"
+	  :approvedschfees="approvedschfees"
     />
   </main>
 </template>
@@ -14,6 +18,7 @@
 <script>
 import adminDashComponent from "@/components/admin/adminDashComponent.vue";
 import adminnav from "@/components/admin/adminnav.vue";
+import approvedeptdues from "@/components/admin/students/approvependingdeptdues.vue";
 export default {
   name: "adminDash",
   components: {
@@ -27,6 +32,10 @@ export default {
       students: "",
       pendingschfees: "",
       pendingdeptdues: "",
+      approveddeptdues: "",
+      approvedschfees: "",
+      approvedlibrary: "",
+      pendinglibrary: "",
     };
   },
   created() {
@@ -34,7 +43,10 @@ export default {
     this.getDepts();
     this.getStudent();
     this.getpendingschoolfees();
-    this.getpendingdeptdues();
+    this.getapproveddeptdues();
+    this.getapprovedschfees();
+    this.getapprovedlibrary();
+    this.getpendinglibrary();
   },
   methods: {
     getAdmins() {
@@ -62,11 +74,35 @@ export default {
         });
     },
 
-    getpendingdeptdues() {
+    getapprovedschfees() {
       this.$http
-        .get("http://localhost:8000/api/v1/pendingdeptdues")
+        .get("http://localhost:8000/api/v1/totalapprovedschfees")
         .then((res) => {
-          this.pendingdeptdues = res.data[0].pending_deptdues;
+          this.approvedschfees = res.data[0].approved_schoolfees;
+        });
+    },
+
+    getapproveddeptdues() {
+      this.$http
+        .get("http://localhost:8000/api/v1/totalapproveddeptdues")
+        .then((res) => {
+          console.log(res.data);
+        });
+    },
+
+    getpendinglibrary() {
+      this.$http
+        .get("http://localhost:8000/api/v1/totalpendinglibrary")
+        .then((res) => {
+          this.pendinglibrary = res.data[0].pending_library;
+        });
+    },
+
+    getapprovedlibrary() {
+      this.$http
+        .get("http://localhost:8000/api/v1/totalapprovedlibrary")
+        .then((res) => {
+          this.approvedlibrary = res.data[0].approved_library;
         });
     },
   },
