@@ -227,10 +227,24 @@ export default {
       try {
         e.preventDefault();
 
-        let res = await this.$http.post("http://localhost:8000/api/v1/form");
+        let data = {};
+
+        data.user = this.form.user;
+        data.regnum = this.form.regnum;
+        data.supervisor = this.form.supervisor;
+        data.gradYear = this.form.gradYear;
+        data.course_adviser = this.form.course_adviser;
+        data.deptadmin = this.form.deptadmin;
+        data.dept = this.form.dept;
+
+        let res = await this.$http.post(
+          "http://localhost:8000/api/v1/form",
+          data
+        );
 
         if (res.data.message === "submission successful") {
           alert("submission successful. Wait for approval");
+          setTimeout(window.location.reload(), 3000);
         }
 
         if (res.data.message === "Invalid Inputs") {
