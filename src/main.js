@@ -35,6 +35,8 @@ Vue.use(VueSweetalert2)
 Vue.prototype.$http = Axios
 Vue.prototype.$id = localStorage.getItem('Id')
 Vue.prototype.$name = localStorage.getItem('name')
+Vue.prototype.$PORT = process.env.VUE_APP_API_HOST
+Vue.prototype.$Review = process.env.VUE_APP_API_REVIEW
 
 Vue.use(SpinnerPlugin)
 Vue.use(CardPlugin)

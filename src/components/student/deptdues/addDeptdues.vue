@@ -97,7 +97,7 @@ export default {
       formData.append("studentId", self.id);
 
       self.$http
-        .post("http://localhost:8000/api/v1/deptDues", formData)
+        .post(`${this.$PORT}deptDues`, formData)
         .then((res) => {
           console.log(res.data);
 

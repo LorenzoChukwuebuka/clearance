@@ -44,7 +44,7 @@ export default {
   methods: {
     getDeptDues() {
       this.$http
-        .get(`http://localhost:8000/api/v1/deptDues/${this.$id}`)
+        .get(`${this.$PORT}deptDues/${this.$id}`)
         .then((res) => {
           this.deptDues = res.data;
           

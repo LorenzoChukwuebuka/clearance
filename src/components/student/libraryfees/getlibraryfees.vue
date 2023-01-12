@@ -12,7 +12,8 @@
           <th scope="col">Fifth Year</th>
           <th scope="col">Status</th>
         </tr>
-      </thead>cal Clearance
+      </thead>
+      cal Clearance
 
       <tbody
         v-for="(library, index) in library"
@@ -21,11 +22,71 @@
       >
         <tr>
           <td>{{ index + 1 }}</td>
-          <td>{{ library.first_yr }}</td>
-          <td>{{ library.second_yr }}</td>
-          <td>{{ library.third_yr }}</td>
-          <td>{{ library.fourth_yr }}</td>
-          <td>{{ library.fifth_yr }}</td>
+          <td>
+            <router-link
+              :to="{
+                name: 'ireview',
+                query: {
+                  year:  library.first_yr,
+                },
+              }"
+              style="text-decoration: none; color: inherit"
+              target="_blank"
+              >{{ library.first_yr }}
+            </router-link>
+          </td>
+          <td>
+            <router-link
+              :to="{
+                name: 'ireview',
+                query: {
+                  year:  library.first_yr,
+                },
+              }"
+              style="text-decoration: none; color: inherit"
+              target="_blank"
+              >{{ library.second_yr }}
+            </router-link>
+          </td>
+          <td>
+            <router-link
+              :to="{
+                name: 'ireview',
+                query: {
+                  year:  library.first_yr,
+                },
+              }"
+              style="text-decoration: none; color: inherit"
+              target="_blank"
+              >{{ library.third_yr }}
+            </router-link>
+          </td>
+          <td>
+            <router-link
+              :to="{
+                name: 'ireview',
+                query: {
+                  year:  library.first_yr,
+                },
+              }"
+              style="text-decoration: none; color: inherit"
+              target="_blank"
+              >{{ library.fourth_yr }}
+            </router-link>
+          </td>
+          <td>
+            <router-link
+              :to="{
+                name: 'ireview',
+                query: {
+                  year:  library.first_yr,
+                },
+              }"
+              style="text-decoration: none; color: inherit"
+              target="_blank"
+              >{{ library.fifth_yr }}
+            </router-link>
+          </td>
           <td>{{ library.status }}</td>
         </tr>
       </tbody>

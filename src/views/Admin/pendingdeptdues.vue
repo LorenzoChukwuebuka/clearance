@@ -39,7 +39,7 @@ export default {
     async getpendingdeptdues() {
       try {
         let res = await this.$http.get(
-          "http://localhost:8000/api/v1/getpendingdeptdues"
+          `${this.$PORT}getpendingdeptdues`
         );
         this.pendingDeptDues = res.data;
       } catch (error) {
@@ -50,7 +50,7 @@ export default {
     async getapproveddeptdues() {
       try {
         let res = await this.$http.get(
-          "http://localhost:8000/api/v1/getapproveddeptdues"
+          `${this.$PORT}getapproveddeptdues`
         );
 
         this.approveDeptDues = res.data;
@@ -62,7 +62,7 @@ export default {
       try {
         if (window.confirm("Do you want to approve?")) {
           const res = await this.$http.put(
-            `http://localhost:8000/api/v1/approvedeptdues/${Id}`
+            `${this.$PORT}approvedeptdues/${Id}`
           );
           alert(res.data.message);
         } else {

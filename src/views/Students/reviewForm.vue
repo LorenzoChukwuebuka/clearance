@@ -1,17 +1,17 @@
 <template>
   <main>
-    <adminnav msg="Submission Review" />
+    <studentnav msg="Student Dashbooard" />
 
     <img :src="fileUrl" class="img-fluid" alt="Responsive image" />
   </main>
 </template>
 
 <script>
-import adminnav from "@/components/admin/adminnav.vue";
+import studentnav from "@/components/student/studentnav.vue";
 export default {
-  name: "ideptdues",
+  name: "ireview",
   components: {
-    adminnav,
+    studentnav,
   },
   data() {
     return {
@@ -21,7 +21,7 @@ export default {
   },
   created() {
     if (this.$route.query.year === undefined) {
-      this.$route.push("/admindashboard");
+      this.$route.push("/studentdash");
     }
     this.filename = this.$route.query.year;
     this.fileUrl = `${this.$Review}${this.filename}`;

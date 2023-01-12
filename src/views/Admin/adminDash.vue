@@ -10,7 +10,7 @@
       :approveddeptdues="approveddeptdues"
       :pendinglibrary="pendinglibrary"
       :approvedlibrary="approvedlibrary"
-	  :approvedschfees="approvedschfees"
+      :approvedschfees="approvedschfees"
     />
   </main>
 </template>
@@ -50,49 +50,41 @@ export default {
   },
   methods: {
     getAdmins() {
-      this.$http.get("http://localhost:8000/api/v1/totalAdmins").then((res) => {
+      this.$http.get(`${this.$PORT}totalAdmins`).then((res) => {
         this.admins = res.data[0].total_admins;
       });
     },
     getDepts() {
-      this.$http.get("http://localhost:8000/api/v1/totalDepts").then((res) => {
+      this.$http.get(`${this.$PORT}totalDepts`).then((res) => {
         this.depts = res.data[0].total_depts;
       });
     },
     getStudent() {
-      this.$http
-        .get("http://localhost:8000/api/v1/totalStudents")
-        .then((res) => {
-          this.students = res.data[0].total_students;
-        });
+      this.$http.get(`${this.$PORT}totalStudents`).then((res) => {
+        this.students = res.data[0].total_students;
+      });
     },
     getpendingschoolfees() {
-      this.$http
-        .get("http://localhost:8000/api/v1/pendingschoolfees")
-        .then((res) => {
-          this.pendingschfees = res.data[0].pending_schoolfees;
-        });
+      this.$http.get(`${this.$PORT}pendingschoolfees`).then((res) => {
+        this.pendingschfees = res.data[0].pending_schoolfees;
+      });
     },
 
     getapprovedschfees() {
-      this.$http
-        .get("http://localhost:8000/api/v1/totalapprovedschfees")
-        .then((res) => {
-          this.approvedschfees = res.data[0].approved_schoolfees;
-        });
+      this.$http.get(`${this.$PORT}totalapprovedschfees`).then((res) => {
+        this.approvedschfees = res.data[0].approved_schoolfees;
+      });
     },
 
     getapproveddeptdues() {
-      this.$http
-        .get("http://localhost:8000/api/v1/totalapproveddeptdues")
-        .then((res) => {
-          console.log(res.data);
-        });
+      this.$http.get(`${this.$PORT}totalapproveddeptdues`).then((res) => {
+        console.log(res.data);
+      });
     },
 
     getpendinglibrary() {
       this.$http
-        .get("http://localhost:8000/api/v1/totalpendinglibrary")
+        .get(`${this.$PORT}totalpendinglibrary`)
         .then((res) => {
           this.pendinglibrary = res.data[0].pending_library;
         });
@@ -100,7 +92,7 @@ export default {
 
     getapprovedlibrary() {
       this.$http
-        .get("http://localhost:8000/api/v1/totalapprovedlibrary")
+        .get(`${this.$PORT}totalapprovedlibrary`)
         .then((res) => {
           this.approvedlibrary = res.data[0].approved_library;
         });

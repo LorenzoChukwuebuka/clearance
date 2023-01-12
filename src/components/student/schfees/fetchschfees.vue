@@ -1,7 +1,10 @@
 <template>
   <main>
     <h4 class="text-dark text-center">School Fees</h4>
-    <table class="table-responsive table mt-5 text-dark" v-if="schFees.length != 0">
+    <table
+      class="table-responsive table mt-5 text-dark"
+      v-if="schFees.length != 0"
+    >
       <thead>
         <tr>
           <th scope="col">#</th>
@@ -17,18 +20,78 @@
       <tbody v-for="(schFee, index) in schFees" :key="index" :value="schFee.id">
         <tr>
           <td class="text-truncate">{{ index + 1 }}</td>
-          <td>{{ schFee.first_yr }}</td>
-          <td>{{ schFee.second_yr }}</td>
-          <td>{{ schFee.third_yr }}</td>
-          <td>{{ schFee.fourth_yr }}</td>
-          <td>{{ schFee.fifth_yr }}</td>
+          <td>
+            <router-link
+              :to="{
+                name: 'ireview',
+                query: {
+                  year: schFee.first_yr,
+                },
+              }"
+              style="text-decoration: none; color: inherit"
+              target="_blank"
+              >{{ schFee.first_yr }}
+            </router-link>
+          </td>
+          <td>
+            <router-link
+              :to="{
+                name: 'ireview',
+                query: {
+                  year: schFee.first_yr,
+                },
+              }"
+              style="text-decoration: none; color: inherit"
+              target="_blank"
+              >{{ schFee.second_yr }}
+            </router-link>
+          </td>
+          <td>
+            <router-link
+              :to="{
+                name: 'ireview',
+                query: {
+                  year: schFee.first_yr,
+                },
+              }"
+              style="text-decoration: none; color: inherit"
+              target="_blank"
+              >{{ schFee.third_yr }}</router-link
+            >
+          </td>
+          <td>
+            <router-link
+              :to="{
+                name: 'ireview',
+                query: {
+                  year: schFee.first_yr,
+                },
+              }"
+              style="text-decoration: none; color: inherit"
+              target="_blank"
+              >{{ schFee.fourth_yr }}
+            </router-link>
+          </td>
+          <td>
+            <router-link
+              :to="{
+                name: 'ireview',
+                query: {
+                  year: schFee.first_yr,
+                },
+              }"
+              style="text-decoration: none; color: inherit"
+              target="_blank"
+              >{{ schFee.fifth_yr }}
+            </router-link>
+          </td>
           <td>{{ schFee.status }}</td>
         </tr>
       </tbody>
     </table>
     <small v-else>
       <p class="text-center text-dark">
-        You have not added any school fees  yet
+        You have not added any school fees yet
       </p>
     </small>
 
@@ -41,12 +104,12 @@
 
 <script>
 export default {
-  name: 'fetchSchFees',
-  props: ['schFees'],
-  data () {
+  name: "fetchSchFees",
+  props: ["schFees"],
+  data() {
     return {
-      error: []
-    }
-  }
-}
+      error: [],
+    };
+  },
+};
 </script>

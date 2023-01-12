@@ -41,9 +41,7 @@ export default {
   methods: {
     async getpendingschfees() {
       try {
-        const res = await this.$http.get(
-          "http://localhost:8000/api/v1/getpendingSchfees"
-        );
+        const res = await this.$http.get(`${this.$PORT}getpendingSchfees`);
         console.log(res.data);
         this.pendingSchfees = res.data;
       } catch (error) {
@@ -54,9 +52,7 @@ export default {
     async approveschfees(Id) {
       try {
         if (window.confirm("Do you want to approve?")) {
-          const res = await this.$http.put(
-            `http://localhost:8000/api/v1/approveSchFees/${Id}`
-          );
+          const res = await this.$http.put(`${this.$PORT}approveSchFees/${Id}`);
 
           alert(res.data.message);
         } else {
@@ -68,9 +64,7 @@ export default {
     },
     async getApprovedSchFees() {
       try {
-        const res = await this.$http.get(
-          "http://localhost:8000/api/v1/getApprovedSchFees"
-        );
+        const res = await this.$http.get(`${this.$PORT}getApprovedSchFees`);
 
         this.approvedSchFees = res.data;
       } catch (error) {

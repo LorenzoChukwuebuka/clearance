@@ -6,11 +6,14 @@
       <h4 class="text-dark text-center">Pending library clearance</h4>
 
       <div class="row justify-content-center mt-5">
-      <div class="container col-10">
-        <approvelibraryfees :pendinglibrary="pendinglibrary"  @Id="approvedue" />
-        <br />
-        <approvedlibraryfees :approvedLibraryfees="approvedlibrary" />
-      </div>
+        <div class="container col-10">
+          <approvelibraryfees
+            :pendinglibrary="pendinglibrary"
+            @Id="approvedue"
+          />
+          <br />
+          <approvedlibraryfees :approvedLibraryfees="approvedlibrary" />
+        </div>
       </div>
     </div>
   </main>
@@ -40,17 +43,13 @@ export default {
   },
   methods: {
     async getpendinglibraryfees() {
-      let response = await this.$http.get(
-        "http://localhost:8000/api/v1/getpendinglibrarydues"
-      );
+      let response = await this.$http.get(`${this.$PORT}getpendinglibrarydues`);
       this.pendinglibrary = response.data;
     },
     async approvedue(Id) {
       try {
         if (window.confirm("Do you want to approve?")) {
-          const res = await this.$http.put(
-            `http://localhost:8000/api/v1/approvelibrary/${Id}`
-          );
+          const res = await this.$http.put(`${this.$PORT}approvelibrary/${Id}`);
           alert(res.data.message);
         } else {
           return;
@@ -62,7 +61,7 @@ export default {
     async getapprovedlibraryfees() {
       try {
         let response = await this.$http.get(
-          "http://localhost:8000/api/v1/getapprovedlibrarydue"
+          `${this.$PORT}getapprovedlibrarydue`
         );
 
         this.approvedlibrary = response.data;

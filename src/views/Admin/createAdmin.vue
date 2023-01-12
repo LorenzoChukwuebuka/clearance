@@ -50,7 +50,7 @@ export default {
   methods: {
     submitForm(form) {
       this.$http
-        .post("http://localhost:8000/api/v1/admin", form)
+        .post(`${this.$PORT}admin`, form)
         .then((res) => {
           if (res.data.message == "inserted successfully") {
             this.success.push(res.data.message);
@@ -62,7 +62,7 @@ export default {
     },
     getAdmins() {
       this.$http
-        .get("http://localhost:8000/api/v1/admin")
+        .get(`${this.$PORT}admin`)
         .then((res) => {
           this.admins = res.data;
         })
@@ -73,7 +73,7 @@ export default {
 
     delAdmin(Id) {
       if (confirm("Are you sure ?")) {
-        this.$http.delete(`http://localhost:8000/api/v1/admin/${Id}`);
+        this.$http.delete(`${this.$PORT}admin/${Id}`);
         setTimeout(() => {
           window.location.reload();
         }, 2000);
@@ -82,7 +82,7 @@ export default {
     updateAdmin(edit) {
       if (confirm("Are you sure you want to update this ?")) {
         this.$http
-          .put(`http://localhost:8000/api/v1/admin/${edit.id}`, edit)
+          .put(`${this.$PORT}admin/${edit.id}`, edit)
           .then((res) => {
             if (res.data.message === "updated") {
               alert(res.data.message);

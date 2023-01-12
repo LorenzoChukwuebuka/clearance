@@ -1,7 +1,10 @@
 <template>
   <main>
-    <h4 class="text-dark text-center"> Departmental Dues </h4>
-    <table class="table table-responsive mt-5 text-dark" v-if="deptDues.length != 0">
+    <h4 class="text-dark text-center">Departmental Dues</h4>
+    <table
+      class="table table-responsive mt-5 text-dark"
+      v-if="deptDues.length != 0"
+    >
       <thead>
         <tr>
           <th scope="col">#</th>
@@ -14,22 +17,102 @@
         </tr>
       </thead>
 
-      <tbody v-for="(deptDue, index) in deptDues" :key="index" :value=" deptDue.id">
+      <tbody
+        v-for="(deptDue, index) in deptDues"
+        :key="index"
+        :value="deptDue.id"
+      >
         <tr>
           <td>{{ index + 1 }}</td>
-          <td>{{  deptDue.first_yr }}</td>
-          <td>{{  deptDue.second_yr }}</td>
-          <td>{{  deptDue.third_yr }}</td>
-          <td>{{  deptDue.fourth_yr }}</td>
-          <td>{{  deptDue.fifth_yr }}</td>
-          <td>{{  deptDue.status }}</td>
+          <td>
+            <router-link
+              :to="{
+                name: 'ireview',
+                query: {
+                  year: deptDue.first_yr,
+                },
+              }"
+              style="text-decoration: none; color: inherit"
+              target="_blank"
+            >
+              {{ deptDue.first_yr }}
+            </router-link>
+          </td>
+          <td>
+            <router-link
+              :to="{
+                name: 'ireview',
+                query: {
+                  year: deptDue.first_yr,
+                },
+              }"
+              style="text-decoration: none; color: inherit"
+              target="_blank"
+            >
+              {{ deptDue.second_yr }}
+            </router-link>
+          </td>
+          <td>
+            <router-link
+              :to="{
+                name: 'ireview',
+                query: {
+                  year: deptDue.first_yr,
+                },
+              }"
+              style="text-decoration: none; color: inherit"
+              target="_blank"
+            >
+              {{ deptDue.third_yr }}
+            </router-link>
+          </td>
+          <td>
+            <router-link
+              :to="{
+                name: 'ireview',
+                query: {
+                  year: deptDue.first_yr,
+                },
+              }"
+              style="text-decoration: none; color: inherit"
+              target="_blank"
+            >
+              {{ deptDue.fourth_yr }}
+            </router-link>
+          </td>
+          <td>
+            <router-link
+              :to="{
+                name: 'ireview',
+                query: {
+                  year: deptDue.first_yr,
+                },
+              }"
+              style="text-decoration: none; color: inherit"
+              target="_blank"
+            >
+              {{ deptDue.fifth_yr }}
+            </router-link>
+          </td>
+          <td>
+            <router-link
+              :to="{
+                name: 'ideptdues',
+                query: {
+                  year: deptDue.first_yr,
+                },
+              }"
+              style="text-decoration: none; color: inherit"
+              target="_blank"
+            >
+              {{ deptDue.status }}
+            </router-link>
+          </td>
         </tr>
       </tbody>
     </table>
     <small v-else>
-      <p class="text-center text-dark">
-        You have not uploaded any dues yet
-      </p>
+      <p class="text-center text-dark">You have not uploaded any dues yet</p>
     </small>
 
     <!-- add modal ---->
@@ -41,12 +124,12 @@
 
 <script>
 export default {
-  name: 'fetchdeptDues',
-  props: ['deptDues'],
-  data () {
+  name: "fetchdeptDues",
+  props: ["deptDues"],
+  data() {
     return {
-      error: []
-    }
-  }
-}
+      error: [],
+    };
+  },
+};
 </script>

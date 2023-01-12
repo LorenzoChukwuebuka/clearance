@@ -43,7 +43,7 @@ export default {
   methods: {
     getSchoolFees() {
       this.$http
-        .get(`http://localhost:8000/api/v1/SchFees/${this.$id}`)
+        .get(`${this.$PORT}SchFees/${this.$id}`)
         .then((res) => {
           this.schFees = res.data;
           console.log(this.schFees);

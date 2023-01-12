@@ -5,9 +5,9 @@
       <addDept :schools="schools" @form="getForm" />
 
       <div class="row justify-content-center mt-5">
-        <div class="container col-8 ">
-          <div class=" bg-dark" v-if="success.length">
-            <span v-for="(suc,index) in success" :key="index">
+        <div class="container col-8">
+          <div class="bg-dark" v-if="success.length">
+            <span v-for="(suc, index) in success" :key="index">
               <b-alert show variant="danger" dismissible>
                 {{ suc }}
               </b-alert>
@@ -27,71 +27,69 @@
 </template>
 
 <script>
-import addDept from '@/components/admin/dept/addDeptComponent.vue'
-import fetchdeptComponent from '@/components/admin/dept/fetchDept.vue'
+import addDept from "@/components/admin/dept/addDeptComponent.vue";
+import fetchdeptComponent from "@/components/admin/dept/fetchDept.vue";
 
 export default {
-  name: 'deptcomponent',
+  name: "deptcomponent",
   components: {
     addDept,
-    fetchdeptComponent
+    fetchdeptComponent,
   },
-  data () {
+  data() {
     return {
       schools: [],
       depts: [],
-      success: []
-    }
+      success: [],
+    };
   },
-  mounted () {
-    this.getSchool()
-    this.getDept()
+  mounted() {
+    this.getSchool();
+    this.getDept();
   },
   methods: {
-    getSchool () {
-      this.$http.get('http://localhost:8000/api/v1/school').then(res => {
-        this.schools = res.data
-      })
+    getSchool() {
+      this.$http.get("${this.$PORT}school").then((res) => {
+        this.schools = res.data;
+      });
     },
-    getForm (form) {
+    getForm(form) {
       this.$http
-        .post('http://localhost:8000/api/v1/Dept', form)
-        .then(res => {
-          console.log(res.data)
+        .post(`${this.$PORT}Dept`, form)
+        .then((res) => {
+          console.log(res.data);
         })
-        .catch(err => {
-          console.log(err)
-        })
+        .catch((err) => {
+          console.log(err);
+        });
     },
-    getDept () {
+    getDept() {
       this.$http
-        .get('http://localhost:8000/api/v1/Dept')
-        .then(res => {
-          this.depts = res.data
+        .get(`${this.$PORT}Dept`)
+        .then((res) => {
+          this.depts = res.data;
         })
-        .catch(err => {
-          console.log(err)
-        })
+        .catch((err) => {
+          console.log(err);
+        });
     },
-    delDept (Id) {
+    delDept(Id) {
       this.$http
-        .delete(`http://localhost:8000/api/v1/Dept/${Id}`)
-        .then(res => {
-          this.success.push(res.data.message)
+        .delete(`${this.$PORT}Dept/${Id}`)
+        .then((res) => {
+          this.success.push(res.data.message);
         })
-        .catch(err => {
-          console.log(err)
-        })
+        .catch((err) => {
+          console.log(err);
+        });
     },
-    updateDept (edit) {
-      this.$http
-        .put(`http://localhost:8000/api/v1/Dept/${edit.id}`, edit)
-        .then(res => {
-          console.log(res.data)
-        })
-    }
-  }
-}
+    updateDept(edit) {
+      this.$http.put(`${this.$PORT}Dept/${edit.id}`, edit).then((res) => {
+        console.log(res.data);
+      });
+    },
+  },
+};
 </script>
 
 <style></style>

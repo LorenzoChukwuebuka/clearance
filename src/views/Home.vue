@@ -101,7 +101,7 @@ export default {
         data.password = this.password;
 
         this.$http
-          .post("http://localhost:8000/api/v1/studentlog", data)
+          .post(`${this.$PORT}studentlog`, data)
           .then((res) => {
             if (
               res.data.message === "user not found" ||

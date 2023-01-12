@@ -45,7 +45,7 @@ export default {
     async getlibrary() {
       try {
         let response = await this.$http.get(
-          `http://localhost:8000/api/v1/medical_clearance/${this.$id}`
+          `${this.$PORT}medical_clearance/${this.$id}`
         );
          this.medical = response.data
       } catch (error) {

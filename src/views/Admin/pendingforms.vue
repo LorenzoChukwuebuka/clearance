@@ -31,7 +31,8 @@ export default {
   },
   methods: {
     pendingform() {
-      this.$http.get("http://localhost:8000/api/v1/pendingform").then((res) => {
+      this.$http.get(`${this.$PORT}pendingform`).then((res) => {
+        console.log(res.data);
         this.pending_form = res.data;
       });
     },
@@ -40,7 +41,7 @@ export default {
       try {
         if (window.confirm("Do you want to approve?")) {
           const res = await this.$http.put(
-            `http://localhost:8000/api/v1/approvependingform/${Id}`
+            `${this.$PORT}approvependingform/${Id}`
           );
         } else {
           return;

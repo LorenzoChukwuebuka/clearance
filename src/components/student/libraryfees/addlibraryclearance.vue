@@ -97,7 +97,7 @@ export default {
       formData.append("studentId", self.id);
 
       self.$http
-        .post("http://localhost:8000/api/v1/library_clearance", formData)
+        .post(`${this.$PORT}library_clearance`, formData)
         .then((res) => {
           if (res.data.code == "1") self.success.push(res.data.message);
 

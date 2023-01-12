@@ -17,6 +17,7 @@ import ischfees from '../views/Admin/Ischfees.vue'
 import pendingLibrary from '../views/Admin/pendinglibraryfees.vue'
 import pendingMedical from "../views/Admin/pendingmedicalfees.vue"
 import deanclearance from "../views/Admin/deanclearance.vue"
+import ireview from "../views/Students/reviewForm.vue"
 
 import uploadLibrary from '../views/Students/uploadLibrary.vue'
 import uploadMedical from '../views/Students/uploadMedical.vue'
@@ -54,6 +55,19 @@ const routes = [
       else next()
     },
   },
+
+  {
+    path: '/ireview',
+    name: 'ireview',
+    component: ireview,
+    beforeEnter: (to, from, next) => {
+      const isAuthenticated = localStorage.getItem('Id') ? true : false
+      if (to.name !== 'Home' && !isAuthenticated) next({ name: 'adminhome' })
+      else next()
+    },
+  },
+
+
 
   {
     path: '/admin/pendingform',
@@ -172,6 +186,8 @@ const routes = [
       else next()
     },
   },
+
+
 
 
 

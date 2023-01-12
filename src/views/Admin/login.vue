@@ -108,7 +108,7 @@ export default {
         data.password = this.password
 
         this.$http
-          .post('http://localhost:8000/api/v1/adminlog', data)
+          .post(`${this.$PORT}adminlog`, data)
           .then(res => {
             if (
               res.data.message === 'user not found' ||

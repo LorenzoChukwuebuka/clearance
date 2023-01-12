@@ -218,7 +218,7 @@ export default {
     },
 
     get_dept() {
-      this.$http.get("http://localhost:8000/api/v1/Dept").then((res) => {
+      this.$http.get(`${this.$PORT}Dept`).then((res) => {
         this.dept = res.data;
       });
     },
@@ -237,10 +237,7 @@ export default {
         data.deptadmin = this.form.deptadmin;
         data.dept = this.form.dept;
 
-        let res = await this.$http.post(
-          "http://localhost:8000/api/v1/form",
-          data
-        );
+        let res = await this.$http.post(`${this.$PORT}form`, data);
 
         if (res.data.message === "submission successful") {
           alert("submission successful. Wait for approval");

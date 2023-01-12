@@ -41,7 +41,7 @@ export default {
     async getpendingmedicalfees() {
       try {
         let response = await this.$http.get(
-          "http://localhost:8000/api/v1/getpendingmedicaldues"
+          `${this.$PORT}getpendingmedicaldues`
         );
 
         this.medical = response.data;
@@ -53,7 +53,7 @@ export default {
       try {
         if (window.confirm("Do you want to approve?")) {
           const res = await this.$http.put(
-            `http://localhost:8000/api/v1/approvemedical/${Id}`
+            ` ${this.$PORT}approvemedical/${Id}`
           );
           alert(res.data.message);
         } else {
@@ -66,7 +66,7 @@ export default {
     async getapprovedMedicalClearacnce() {
       try {
         let response = await this.$http.get(
-          "http://localhost:8000/api/v1/getapprovedmedicaldues"
+          `${this.$PORT}getapprovedmedicaldues`
         );
         this.approvedMedical = response.data;
       } catch (error) {

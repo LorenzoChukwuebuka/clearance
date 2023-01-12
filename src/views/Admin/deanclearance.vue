@@ -36,9 +36,7 @@ export default {
   methods: {
     async getAllStudents() {
       try {
-        let response = await this.$http.get(
-          "http://localhost:8000/api/v1/allapprovedStudents"
-        );
+        let response = await this.$http.get(`${this.$PORT}allapprovedStudents`);
         this.allstudents = response.data.data;
       } catch (error) {}
     },
@@ -51,32 +49,29 @@ export default {
           data.admin = this.$id;
           data.id = Id;
           let response = await this.$http.post(
-            "http://localhost:8000/api/v1/deanclearance",
+            `${this.$PORT}/deanclearance`,
             data
           );
 
-          if ((response.data.code == 3)) {
+          if (response.data.code == 3) {
             alert(response.data.message);
           }
 
-		  if(response.data.code == 1){
-			alert(response.data.message)
-		  }
-        }else{
-			return 
-		}
+          if (response.data.code == 1) {
+            alert(response.data.message);
+          }
+        } else {
+          return;
+        }
       } catch (error) {
-		console.log(error)
-	  }
+        console.log(error);
+      }
     },
 
-	async getClearedStudents(){
-		try {
-			
-		} catch (error) {
-			
-		}
-	}
+    async getClearedStudents() {
+      try {
+      } catch (error) {}
+    },
   },
 };
 </script>

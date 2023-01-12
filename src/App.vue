@@ -7,6 +7,17 @@
   </div>
 </template>
 
+ <script> 
+
+// export default{
+//   name:"app",
+//   mounted(){
+//     console.log(this.$PORT)
+//   }
+// }
+
+</script>
+
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

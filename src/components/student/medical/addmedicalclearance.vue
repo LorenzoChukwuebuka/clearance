@@ -97,7 +97,7 @@ export default {
       formData.append("studentId", self.id);
 
       self.$http
-        .post("http://localhost:8000/api/v1/medical_clearance", formData)
+        .post(`${this.$PORT}medical_clearance`, formData)
         .then((res) => {
           if (res.data.code == "1") self.success.push(res.data.message);
 
